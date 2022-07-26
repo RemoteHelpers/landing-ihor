@@ -1,0 +1,47 @@
+.MainPage {
+  height: 100vh;
+  text-align: center;
+  padding: 30px 25px 5px;
+
+  &__logo {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    margin: 0 0 20px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 110%;
+    color: #1a1a1c;
+  }
+
+  &__paragraph {
+    margin: 0 0 40px;
+  }
+
+  &__button {
+    margin: 0 auto 15px;
+    display: block;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 170.9%;
+    text-align: center;
+
+    color: #ff5252;
+    background-color: transparent;
+    border: 2px solid #ff5252;
+    border-radius: 6px;
+    padding: 19px 28px;
+  }
+
+  &__illustration {
+    display: block;
+    position: absolute;
+    left: -2.78%;
+  }
+
+  &__social {
+    list-style: none;
+  }
+}
