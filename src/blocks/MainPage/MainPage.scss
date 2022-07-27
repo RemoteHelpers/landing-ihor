@@ -1,22 +1,109 @@
+@import '../../utils/mixins.scss';
+
 .MainPage {
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
-  padding: 30px 25px 5px;
+  padding: 30px 0 5px;
+
+  @include onDesktop {
+    padding: 50px 0 0;
+  }
 
   &__logo {
-    margin-bottom: 40px;
+    margin-bottom: 15%;
+
+    @include onDesktop {
+      margin-bottom: 5%;
+      width: 224px;
+      height: 44px;
+    }
+
+    @media (min-width: 1920px) {
+      width: 320px;
+      height: 63px;
+    }
   }
 
   &__title {
-    margin: 0 0 20px;
+    margin: 0 0 5%;
     font-weight: 700;
     font-size: 26px;
     line-height: 110%;
     color: #1a1a1c;
+
+    @include onDesktop {
+      margin: 0 0 3%;
+      font-size: 82px;
+      line-height: 100%;
+    }
   }
 
   &__paragraph {
-    margin: 0 0 40px;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0 auto 25%;
+    line-height: 150%;
+
+    &--yellow {
+      font-weight: 700;
+      position: relative;
+
+      border-bottom: 2px solid yellow;
+      border-radius: 2px;
+      transition: 0.3s all;
+      
+      &:hover {
+        background-color: yellow;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+
+    &--blue {
+      font-weight: 700;
+      position: relative;
+
+      border-bottom: 2px solid blue;
+      border-radius: 2px;
+      transition: 0.3s all;
+      
+      &:hover {
+        background-color: blue;
+        color: #fff;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+
+    &--red {
+      font-weight: 700;
+      position: relative;
+      transition: 0.3s all;
+
+      border-bottom: 2px solid red;
+      border-radius: 2px;
+      
+      &:hover {
+        background-color: red;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+
+    @include onTablet {
+      margin: 0 auto 10%;
+    }
+
+    @include onDesktop {
+      font-size: 20px;
+      width: 860px;
+      margin: 0 auto 7%;
+    }
   }
 
   &__button {
@@ -33,15 +120,193 @@
     border: 2px solid #ff5252;
     border-radius: 6px;
     padding: 19px 28px;
+    transition: 0.3s all;
+
+    @include onDesktop {
+      font-size: 28px;
+      line-height: 170.9%;
+      padding: 20px 60px;
+      border-radius: 10px;
+      margin: 0 auto 100px;
+    }
+
+    &:hover {
+      color: white;
+      cursor: pointer;
+      background-color: #ff5252;
+    }
   }
 
   &__illustration {
-    display: block;
+    z-index: -1;
     position: absolute;
-    left: -2.78%;
+    left: -6%;
+    bottom: 30px;
+
+    animation-name: move;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 6;
+    animation-direction: alternate;
+    animation-delay: 2s;
+
+    @include onTablet {
+      animation-name: move;
+      width: 263px;
+      left: -3%;
+      height: 197px;
+    }
+
+    @include onDesktop {
+      animation-name: moveOnDesktop;
+      width: 394px;
+      height: 295px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 525px;
+      height: 391px;
+    }
+
+    @media (min-width: 1920px) {
+      left: -5%;
+      width: 788.02px;
+      height: 591.02px;
+    }
   }
 
   &__social {
     list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 21px;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 160%;
+  }
+
+  &__social-item {
+    &--desktop {
+      display: none;
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 160%;
+    }
+
+    @include onDesktop {
+      display: inline;
+      font-size: 14px;
+    }
+  }
+
+  &__social-link {
+    color: #828282;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    transition: 0.3s all;
+
+    &:hover {
+      transform: scale(115%);
+    }
+  }
+
+  &__social-logo {
+    width: 15px;
+    height: 15px;
+  }
+
+  &__gradient-1 {
+    z-index: -1;
+    position: absolute;
+    left: 5.14%;
+    right: -214.99%;
+    top: -17.66%;
+    bottom: 16.67%;
+
+    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 9, 9, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
+    filter: blur(4px);
+
+    @include onDesktop {
+      width: 1161.94px;
+      height: 1161.94px;
+      left: 1475.99px;
+      top: -261.94px;
+    }
+  }
+
+  &__gradient-2 {
+    z-index: -1;
+    position: absolute;
+    left: -46.51%;
+    right: -75.8%;
+    top: -3.4%;
+    bottom: 30.94%;
+
+    background: radial-gradient(50% 50% at 50% 50%, rgba(207, 32, 251, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
+    filter: blur(4px);
+
+    @include onDesktop {
+      width: 833.68px;
+      height: 833.68px;
+      left: 1288.39px;
+      top: -318.06px;
+    }
+  }
+
+  &__gradient-3 {
+    z-index: -1;
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      position: absolute;
+      width: 764.24px;
+      height: 764.24px;
+      left: -600.29px;
+      top: 200.3px;
+
+      background: radial-gradient(50% 50% at 50% 50%, rgba(207, 32, 251, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
+      filter: blur(4px);
+    }
+  }
+
+  &__gradient-4 {
+    z-index: -1;
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      position: absolute;
+      width: 1015.17px;
+      height: 1015.17px;
+      left: -700.83px;
+      top: 200.3px;
+
+      background: radial-gradient(50% 50% at 50% 50%, rgba(255, 9, 9, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
+      filter: blur(4px);
+    }
+  }
+}
+
+@keyframes move {
+  from {
+    bottom: 30px;
+  }
+
+  to {
+    bottom: 60px;
+  }
+}
+
+@keyframes moveOnDesktop {
+  from {
+    bottom: -27px;
+  }
+
+  to {
+    bottom: 100px;
   }
 }
