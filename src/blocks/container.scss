@@ -13,4 +13,20 @@
       max-width: 1200px;
     }
   }
+
+  &__FirstQuizPage {
+    padding: 0 20px;
+
+    @include onDesktop {
+      padding: 40px 6% 0;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 60px 6% 0;
+    }
+
+    @media (min-width: 1920px) {
+      padding: 80px 6% 0;
+    }
+  }
 }

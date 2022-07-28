@@ -1,0 +1,51 @@
+@import '../utils/mixins.scss';
+
+.header {
+  @include onDesktop {
+    display: none;
+  }
+  
+  &__logo {
+    margin-bottom: 0.5%;
+
+    @include onDesktop {
+      width: 275px;
+      height: 65px;
+    }
+
+    @media (min-width: 1440px) {
+      width: 412px;
+      height: 97px;
+    }
+
+    @media (min-width: 1920px) {
+      width: 550px;
+      height: 130px;
+    }
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 130%;
+    margin: 0;
+
+    color: #1a1a1c;
+
+    @include onDesktop {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 150.9%;
+
+      color: #1a1a1c;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 18px;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 24px;
+    }
+  }
+}

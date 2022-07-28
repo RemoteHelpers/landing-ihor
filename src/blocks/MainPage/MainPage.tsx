@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Logo from '../../images/Logo.svg';
 import Illustration from '../../images/main-ill.svg';
@@ -46,12 +47,15 @@ export const MainPage: React.FC = () => {
           {' '}
           for the first month for every correct answer.
         </p>
-        <button
-          type="button"
-          className="MainPage__button"
-        >
-          Want a discount
-        </button>
+        <Link to="/firstQuestion">
+          <button
+            type="button"
+            className="MainPage__button"
+          >
+            Want a discount
+          </button>
+        </Link>
+
         <img
           className="MainPage__illustration"
           src={Illustration}

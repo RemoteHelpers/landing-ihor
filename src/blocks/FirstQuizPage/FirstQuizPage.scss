@@ -1,0 +1,295 @@
+@import '../../utils/mixins.scss';
+
+.FirstQuizPage {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  padding: 30px 0 0;
+
+  @include onDesktop {
+    width: 100%;
+    padding: 0;
+  }
+
+  &__header {
+    &--desktop {
+      display: none;
+      
+      @include onDesktop {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__footer-text {
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 170.9%;
+    color: #fff;
+    padding: 6px 36px;
+
+    background: #ff1111;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: 0.3s all;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #fff;
+      border: 1px solid #ff1111;
+      color: #ff1111;
+    }
+
+    @include onDesktop {
+      font-size: 10px;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 15px;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 20px;
+    }
+  }
+
+  &__info {
+    display: none;
+    background-image: url("../../images/quiz-ill.svg");
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 35px 35px;
+      width: 40%;
+      height: 100vh;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 60px 53px 53px;
+    }
+
+    @media (min-width: 1920px) {
+      padding: 80px 70px 70px;
+    }
+  }
+
+  &__content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+
+    @include onDesktop {
+      width: 60%;
+    }
+  }
+
+  &__main {
+    padding: 4.5% 0 0;
+
+    @include onDesktop {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    margin: 0 0 4%;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 130%;
+
+    color: #1a1a1c;
+
+    &--red {
+      border-bottom: 2px solid #ff5252;
+      transition: 0.3s all;
+
+      &:hover {
+        background-color: #ff5252;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+
+    @include onDesktop {
+      font-size: 24px;
+      text-align: left;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 36px;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 48px;
+    }
+  }
+
+  &__radiobuttons {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 0;
+  }
+
+  &__radiobutton {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    @include onDesktop {
+      justify-content: left;
+      width: 100%;
+      margin-left: 10%;
+    }
+  }
+
+  &__radio {
+    display: none;
+
+    &:checked + 
+    .FirstQuizPage__fake::before {
+      opacity: 1;
+    }
+  }
+
+  &__fake {
+    display: inline-block;
+    height: 47px;
+    width: 47px;
+    position: relative;
+
+    &--red {
+      border: 3px solid #ff5252;
+      border-radius: 50%;
+
+      @include checkbox {
+        background-color: #ff5252;
+      }
+    }
+
+    &--yellow {
+      border: 3px solid #ff981f;
+      border-radius: 50%;
+
+      @include checkbox {
+        background-color: #ff981f;;
+      }
+    }
+
+    &--green {
+      border: 3px solid #3eff3a;
+      border-radius: 50%;
+
+      @include checkbox {
+        background-color: #3eff3a;
+      }
+    }
+
+    &--blue {
+      border: 3px solid #3141d6;
+      border-radius: 50%;
+
+      @include checkbox {
+        background-color: #3141d6;
+      }
+    }
+  }
+
+  &__text {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 32px;
+    color: #1a1a1c;
+
+    @media (min-width: 1440px) {
+      font-size: 43px;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 64px;
+    }
+  }
+
+  &__illustration {
+    z-index: -1;
+    position: absolute;
+    right: 0;
+
+    @include onTablet {
+      right: 50px;
+    }
+
+    @include onDesktop {
+      z-index: 1;
+      width: 503px;
+      height: 337px;
+      right: 22%;
+    }
+
+    @media (min-width: 1440px) {
+      bottom: 9%;
+      width: 754px;
+      height: 505px;
+    }
+
+    @media (min-width: 1920px) {
+      bottom: 9%;
+      right: 24%;
+      width: 1007.24px;
+      height: 755.43px;
+    }
+  }
+
+  &__numberOfItem {
+    position: absolute;
+    left: 5%;
+    bottom: 6%;
+
+    font-family: 'Balsamiq Sans', cursive;font-size: 14px;
+    line-height: 170.9%;
+    text-transform: uppercase;
+
+    color: #1a1a1c;
+
+    &--active {
+      font-family: 'Balsamiq Sans';
+      font-style: normal;
+      font-size: 33px;
+      line-height: 170.9%;
+      text-transform: uppercase;
+
+      color: #005595;
+
+      @media (min-width: 1440px) {
+        font-size: 44px;
+      }
+  
+      @media (min-width: 1920px) {
+        font-size: 59px;
+      }
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 22px;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 29px;
+    }
+  }
+}
