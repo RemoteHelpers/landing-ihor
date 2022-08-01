@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import Illustration from '../../images/question1-ill.svg';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
@@ -9,8 +10,29 @@ import Email from '../../images/social/email.svg';
 import './FirstQuizPage.scss';
 import '../header.scss';
 import '../footer.scss';
+import '../star.scss';
+import '../notification.scss';
 
 export const FirstQuizPage: React.FC = () => {
+  const [timer, setTimer] = useState<number>(15);
+  const [isNotification, setIsNotification] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (timer > 0) {
+      const interval = setInterval(() => {
+        setTimer(timer - 1);
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }
+
+    if (timer === 0) {
+      setIsNotification(true);
+    }
+
+    return undefined;
+  }, [timer]);
+
   return (
     <div className="FirstQuizPage">
       <div className="FirstQuizPage__content-wrapper">
@@ -31,10 +53,12 @@ export const FirstQuizPage: React.FC = () => {
               How many
               {' '}
               <span className="FirstQuizPage__title--red">
-                specialties
+                specialities
               </span>
               {' '}
-              for your business can we offer?
+              for your
+              <br />
+              business can we offer?
             </h3>
 
             <div className="FirstQuizPage__radiobuttons">
@@ -175,6 +199,18 @@ export const FirstQuizPage: React.FC = () => {
           </button>
         </footer>
       </div>
+
+      {!isNotification && (
+        <div className="star">
+          <span className="star__text">{timer}</span>
+        </div>
+      )}
+
+      {isNotification && (
+        <div className="notification">
+          Please click on your answer
+        </div>
+      )}
     </div>
   );
 };

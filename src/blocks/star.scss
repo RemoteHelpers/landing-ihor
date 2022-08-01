@@ -1,0 +1,62 @@
+@import '../utils/mixins.scss';
+
+.star {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 72px;
+  height: 72px;
+  top: 60%;
+  right: 30%;
+
+  background-image: url('../images/star/Star-small.svg');
+
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+  @include onTablet {
+    right: 4%;
+  }
+
+  @include onDesktop {
+    width: 150px;
+    height: 150px;
+    background-image: url('../images/star/timer-bg.svg');
+    top: 40%;
+    right: 4%;
+  }
+
+  &--true {
+    background-image: url('../images/star/Star-green.svg');
+  }
+
+  &--false {
+    background-image: url('../images/star/Star-red.svg');
+  }
+
+  &__text {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 170.9%;
+
+    color: #fff;
+
+    @include onDesktop {
+      font-size: 37px;
+    }
+  }
+}
+
+@keyframes blink {
+  from {
+    transform: scale(90%);
+  }
+
+  to {
+    transform: scale(110%);
+  }
+}

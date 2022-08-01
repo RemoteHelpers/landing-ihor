@@ -1,6 +1,7 @@
 @import '../../utils/mixins.scss';
 
 .MainPage {
+  background-image: radial-gradient(50% 50% at 80% 50%, rgba(207, 32, 251, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -12,6 +13,7 @@
 
   @include onDesktop {
     padding: 50px 0 0;
+    background-image: linear-gradient(to left bottom, rgba(207, 32, 251, 0.11), transparent 30%, rgba(207, 32, 251, 0.11));
   }
 
   &__logo {
@@ -213,78 +215,6 @@
     width: 15px;
     height: 15px;
   }
-
-  &__gradient-1 {
-    z-index: -1;
-    position: absolute;
-    left: 5.14%;
-    right: -214.99%;
-    top: -17.66%;
-    bottom: 16.67%;
-
-    background: radial-gradient(50% 50% at 50% 50%, rgba(255, 9, 9, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
-    filter: blur(4px);
-
-    @include onDesktop {
-      width: 1161.94px;
-      height: 1161.94px;
-      left: 1475.99px;
-      top: -261.94px;
-    }
-  }
-
-  &__gradient-2 {
-    z-index: -1;
-    position: absolute;
-    left: -46.51%;
-    right: -75.8%;
-    top: -3.4%;
-    bottom: 30.94%;
-
-    background: radial-gradient(50% 50% at 50% 50%, rgba(207, 32, 251, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
-    filter: blur(4px);
-
-    @include onDesktop {
-      width: 833.68px;
-      height: 833.68px;
-      left: 1288.39px;
-      top: -318.06px;
-    }
-  }
-
-  &__gradient-3 {
-    z-index: -1;
-    display: none;
-
-    @include onDesktop {
-      display: block;
-      position: absolute;
-      width: 764.24px;
-      height: 764.24px;
-      left: -600.29px;
-      top: 200.3px;
-
-      background: radial-gradient(50% 50% at 50% 50%, rgba(207, 32, 251, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
-      filter: blur(4px);
-    }
-  }
-
-  &__gradient-4 {
-    z-index: -1;
-    display: none;
-
-    @include onDesktop {
-      display: block;
-      position: absolute;
-      width: 1015.17px;
-      height: 1015.17px;
-      left: -700.83px;
-      top: 200.3px;
-
-      background: radial-gradient(50% 50% at 50% 50%, rgba(255, 9, 9, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
-      filter: blur(4px);
-    }
-  }
 }
 
 @keyframes move {
@@ -299,10 +229,12 @@
 
 @keyframes moveOnDesktop {
   from {
+    z-index: -1;
     bottom: 30px;
   }
 
   to {
+    z-index: 1;
     bottom: 100px;
   }
 }

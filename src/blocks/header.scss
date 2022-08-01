@@ -8,6 +8,11 @@
   &__logo {
     margin-bottom: 0.5%;
 
+    &--info {
+      width: 169px;
+      height: 33px;
+    }
+
     @include onDesktop {
       width: 275px;
       height: 65px;
@@ -25,6 +30,7 @@
   }
 
   &__text {
+    display: none;
     font-weight: 500;
     font-size: 9px;
     line-height: 130%;
@@ -32,7 +38,20 @@
 
     color: #1a1a1c;
 
+    &--inline {
+      font-weight: 500;
+      font-size: 9px;
+      line-height: 130%;
+      display: block;
+      margin: 0;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
     @include onDesktop {
+      display: block;
       font-weight: 500;
       font-size: 12px;
       line-height: 150.9%;

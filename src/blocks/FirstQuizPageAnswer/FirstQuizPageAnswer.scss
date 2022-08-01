@@ -1,0 +1,476 @@
+@import '../../utils/mixins.scss';
+
+.FirstQuizPageAnswer {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+
+  &__main {
+    &--mobile {
+      height: 100%;
+      padding: 5% 6%;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__header {
+    &--desktop {
+      @include onDesktop {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__info {
+    width: 100%;
+    background-image: url("../../images/quiz-ill.svg");
+    display: flex;
+    padding: 4.5% 0 0;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    @include onDesktop {
+      padding: 40px 35px 35px;
+      width: 40%;
+    }
+
+    @media (min-width: 1440px) {
+      padding: 60px 53px 53px;
+    }
+
+    @media (min-width: 1920px) {
+      padding: 80px 70px 70px;
+    }
+
+    &--content-wrapper {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__content-wrapper {
+    display: none;
+  
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      width: 60%;
+    }
+  }
+
+  &__footer-info {
+    width: 100%;
+  }
+
+  &__footer-text {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 170.9%;
+    color: #fff;
+    padding: 6px 36px;
+
+    background: #ff1111;
+    border: 1px solid transparent;
+    transition: 0.3s all;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #fff;
+      border: 1px solid #ff1111;
+      color: #ff1111;
+    }
+
+    @include onDesktop {
+      width: 80%;
+      border-radius: 10px;
+      font-size: 10px;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 15px;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 20px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 4%;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 130%;
+
+    color: #1a1a1c;
+
+    &--red {
+      border-bottom: 2px solid #ff5252;
+      transition: 0.3s all;
+
+      &:hover {
+        background-color: #ff5252;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+
+    @include onDesktop {
+      font-size: 24px;
+      text-align: left;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 36px;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 48px;
+    }
+  
+    &--mobile {
+      margin: 0 0 4%;
+    }
+  }
+
+  &__text-answer {
+    font-size: 12px;
+    margin: 0 0 2%;
+    line-height: 150%;
+    text-align: left;
+
+    @media (min-width: 1440px) {
+      font-size: 18px;
+    }
+
+    @media (min-width: 1920px) {
+      font-size: 24px;
+    }
+
+    &--red {
+      font-size: 32px;
+      line-height: 150%;
+
+      color: #ff1111;
+      font-family: 'Balsamiq Sans', cursive;
+
+      @media (min-width: 1440px) {
+        font-size: 48px;
+      }
+  
+      @media (min-width: 1920px) {
+        font-size: 64px;
+      }
+    }
+
+    &--mobile {
+      margin: 0 0 2%;
+      font-size: 16px;
+      line-height: 150%;
+      text-align: left;
+
+      color: #1a1a1c;
+
+      &--red {
+        font-size: 35px;
+        line-height: 150%;
+
+        color: #ff1111;
+        font-family: 'Balsamiq Sans', cursive;
+      }
+    }
+  }
+
+  &__vision-answer {
+    position: relative;
+    min-height: 200px;
+    font-weight: 700;
+    line-height: 150%;
+
+    color: #1a1a1c;
+
+    @media (min-width: 1440px) {
+      min-height: 250px;
+    }
+
+    @media (min-width: 1920px) {
+      min-height: 300px;
+    }
+
+    &--1 {
+      background-image: url('../../images/FirstAnswer/1.svg');
+      top: 3%;
+      left: 10%;
+    }
+
+    &--2 {
+      background-image: url('../../images/FirstAnswer/2.svg');
+      top: 3%;
+      left: 44%;
+    }
+
+    &--3 {
+      background-image: url('../../images/FirstAnswer/3.svg');
+      bottom: 0;
+      left: 20%;
+    }
+
+    &--4 {
+      background-image: url('../../images/FirstAnswer/4.svg');
+      height: 40px;
+      top: 38%;
+      left: 31%;
+    }
+
+    &--5 {
+      background-image: url('../../images/FirstAnswer/5.svg');
+      top: 55%;
+      left: 4%;
+    }
+
+    &--6 {
+      background-image: url('../../images/FirstAnswer/6.svg');
+      bottom: 2%;
+      left: 0;
+
+      top: 70%;
+      left: 58%
+    }
+
+    &--7 {
+      background-image: url('../../images/FirstAnswer/7.svg');
+      position: absolute;
+      top: 26%;
+      left: 70%;
+    }
+
+    & > * {
+      position: absolute;
+      z-index: 1;
+      font-size: 12px;
+      width: fit-content;
+      padding: 0 30px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      transition: 0.3s all;
+
+      @media (min-width: 1440px) {
+        height: 52px;
+        font-size: 18px;
+      }
+
+      @media (min-width: 1920px) {
+        height: 54px;
+        font-size: 24px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(110%);
+      }
+    }
+
+    &--mobile > * {
+      position: absolute;
+      z-index: 1;
+      width: fit-content;
+      padding: 0 15px;
+      height: 38px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-repeat: no-repeat;
+      background-position: center;
+
+      transition: 0.3s all;
+
+      &:hover {
+        transform: scale(110%);
+      }
+    }
+
+    &--mobile {
+      margin-bottom: 7%;
+      position: relative;
+      min-height: 180px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+
+      color: #1a1a1c;
+
+      @include onTablet {
+        min-height: 150px;
+      }
+
+      &--1 {
+        background-image: url('../../images/FirstAnswer/1.svg');
+        top: 3%;
+        left: 5%;
+      }
+
+      &--2 {
+        background-image: url('../../images/FirstAnswer/2.svg');
+        top: 5%;
+        right: 15%;
+      }
+
+      &--3 {
+        background-image: url('../../images/FirstAnswer/3.svg');
+        top: 28%;
+        left: 0;
+      }
+
+      &--4 {
+        background-image: url('../../images/FirstAnswer/4.svg');
+        height: 40px;
+        top: 38%;
+        right: 20%;
+
+        @media (max-width: 360px) {
+          right: 10%;
+        }
+      }
+
+      &--5 {
+        background-image: url('../../images/FirstAnswer/5.svg');
+        top: 53%;
+        left: 4%;
+
+        @include onTablet {
+          top: 2%;
+          left: 40%
+        }
+      }
+
+      &--6 {
+        background-image: url('../../images/FirstAnswer/6.svg');
+        bottom: 2%;
+        left: 0;
+
+        @include onTablet {
+          top: 30%;
+          left: 36%
+        }
+      }
+
+      &--7 {
+        background-image: url('../../images/FirstAnswer/7.svg');
+        position: absolute;
+        bottom: 0%;
+        left: 40%;
+
+        @include onTablet {
+          bottom: 10%;
+        }
+      }
+    }
+  }
+
+  &__paragraph {
+    &--mobile {
+      text-align: left;
+      margin: 0;
+      font-size: 16px;
+      line-height: 130%;
+      color: #1a1a1c;
+    }
+  }
+
+  &__numberOfItem {
+    position: absolute;
+    left: 5%;
+    bottom: 6%;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 15px;
+    line-height: 170.9%;
+    text-transform: uppercase;
+    color: #1a1a1c;
+
+    @media (min-width: 1440px) {
+      font-size: 22px;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 29px;
+    }
+
+    &--mobile {
+      position: absolute;
+      bottom: 5%;
+      font-family: 'Balsamiq Sans', cursive;
+      font-size: 14px;
+      line-height: 170.9%;
+      text-transform: uppercase;
+      color: #1a1a1c;
+    }
+
+    &--active {
+      font-family: 'Balsamiq Sans', cursive;
+      font-size: 33px;
+      line-height: 170.9%;
+      text-transform: uppercase;
+
+      color: #005595;
+
+      @include onDesktop {
+        font-size: 30px;
+      }
+
+      @media (min-width: 1440px) {
+        font-size: 44px;
+      }
+  
+      @media (min-width: 1440px) {
+        font-size: 59px;
+      }
+    }
+  }
+
+  &__illustration {
+    &--mobile {
+      position: absolute;
+      right: 0%;
+      bottom: 10%;
+
+      @media (max-width: 360px) {
+        right: -12%;
+      }
+
+      @include onDesktop {
+        right: 35%;
+      }
+
+      @media (min-width: 1440px) {
+        bottom: 2%;
+        width: 480px;
+        right: 33%;
+      }
+
+      @media (min-width: 1920px) {
+        bottom: 2%;
+        width: 720px;
+        right: 33%;
+      }
+    }
+  }
+}

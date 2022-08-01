@@ -1,8 +1,8 @@
 @import '../utils/mixins.scss';
 
 .container {
-  margin: 0 auto;
   &__mainPage {
+    margin: 0 auto;
     padding: 0 25px;
 
     @include onTablet {
@@ -14,7 +14,8 @@
     }
   }
 
-  &__FirstQuizPage {
+  &__FirstQuizPage,
+  &__FirstQuizPageAnswer {
     padding: 0 20px;
 
     @include onDesktop {

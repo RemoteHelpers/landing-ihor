@@ -61,10 +61,6 @@ export const MainPage: React.FC = () => {
           src={Illustration}
           alt="helper illustration"
         />
-        <div className="MainPage__gradient-1"></div>
-        <div className="MainPage__gradient-2"></div>
-        <div className="MainPage__gradient-3"></div>
-        <div className="MainPage__gradient-4"></div>
       </div>
 
       <footer className="footer">
