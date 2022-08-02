@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { MainPage } from './blocks/MainPage/MainPage';
 import { FirstQuizPage } from './blocks/FirstQuizPage/FirstQuizPage';
 import { FirstQuizPageAnswer } from './blocks/FirstQuizPageAnswer/FirstQuizPageAnswer';
+import { SecondQuizPage } from './blocks/SecondQuizPage/SecondQuizPage';
 import './App.scss';
 
 export const App: React.FC = () => {
@@ -16,6 +17,8 @@ export const App: React.FC = () => {
         <Route path="/firstQuestion" element={<FirstQuizPage />} />
 
         <Route path="/firstQuestionAnswer" element={<FirstQuizPageAnswer />} />
+
+        <Route path="/secondQuestion" element={<SecondQuizPage />} />
 
         {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>

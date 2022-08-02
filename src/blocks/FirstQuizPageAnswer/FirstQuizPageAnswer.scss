@@ -60,6 +60,7 @@
     display: none;
   
     @include onDesktop {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -410,7 +411,7 @@
       font-size: 22px;
     }
 
-    @media (min-width: 1440px) {
+    @media (min-width: 1920px) {
       font-size: 29px;
     }
 
@@ -440,7 +441,7 @@
         font-size: 44px;
       }
   
-      @media (min-width: 1440px) {
+      @media (min-width: 1920px) {
         font-size: 59px;
       }
     }

@@ -8,7 +8,7 @@
   width: 72px;
   height: 72px;
   top: 60%;
-  right: 30%;
+  right: 25%;
 
   background-image: url('../images/star/Star-small.svg');
 
@@ -19,7 +19,7 @@
   animation-direction: alternate;
 
   @include onTablet {
-    right: 4%;
+    right: 20%;
   }
 
   @include onDesktop {

@@ -1,0 +1,63 @@
+@import '../../utils/mixins.scss';
+
+.buttons {
+  z-index: 1;
+  position: absolute;
+  bottom: 8%;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+
+  font-size: 12px;
+  line-height: 170.9%;
+  color: #1A1A1C;
+
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto;
+  width: 200px;
+
+  @include onDesktop {
+    left: 38%;
+    gap: 36px;
+    font-size: 18px;
+  }
+
+  @include on1920 {
+    font-size: 24px;
+  }
+
+  &__previous {
+    display: flex;
+    gap: 5px;
+    transition: 0.3s all;
+
+    &:hover {
+      transform: scale(105%);
+    }
+  }
+
+  &__next {
+    display: flex;
+    gap: 5px;
+    transition: 0.3s all;
+
+    &:hover {
+      transform: scale(105%);
+    }
+  }
+
+  &--mobile {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--desktop {
+    display: none;
+    @include onDesktop {
+      display: inline;
+    }
+  }
+}

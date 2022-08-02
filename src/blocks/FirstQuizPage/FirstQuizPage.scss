@@ -110,6 +110,24 @@
 
     color: #1a1a1c;
 
+    @media (max-width: 374px) {
+      font-size: 16px;
+    }
+
+    &--mobile {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
     &--red {
       border-bottom: 2px solid #ff5252;
       transition: 0.3s all;
@@ -142,12 +160,16 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 24px 0;
+
+    @include onDesktop {
+      justify-content: left;
+    }
   }
 
   &__radiobutton {
     display: flex;
-    justify-content: center;
-    width: 40%;
+    justify-content: left;
+    padding-left: 1%;
     display: flex;
     align-items: center;
     gap: 13px;
@@ -156,6 +178,10 @@
       justify-content: left;
       width: 100%;
       margin-left: 10%;
+    }
+
+    &:hover {
+      cursor: pointer;
     }
   }
 
@@ -228,6 +254,7 @@
   &__illustration {
     z-index: -1;
     position: absolute;
+    bottom: 4%;
     right: 0;
 
     @include onTablet {
@@ -235,6 +262,7 @@
     }
 
     @include onDesktop {
+      bottom: 9%;
       z-index: 1;
       width: 503px;
       height: 337px;
@@ -290,6 +318,15 @@
 
     @media (min-width: 1920px) {
       font-size: 29px;
+    }
+  }
+
+  &__navigate {
+    display: block;
+    width: 40%;
+
+    @include onDesktop {
+      width: 60%;
     }
   }
 }

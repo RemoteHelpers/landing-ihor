@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import Illustration from '../../images/question1-ill.svg';
 import Logo from '../../images/Logo.svg';
@@ -49,7 +50,7 @@ export const FirstQuizPage: React.FC = () => {
           </header>
 
           <main className="FirstQuizPage__main">
-            <h3 className="FirstQuizPage__title">
+            <h3 className="FirstQuizPage__title FirstQuizPage__title--desktop">
               How many
               {' '}
               <span className="FirstQuizPage__title--red">
@@ -61,46 +62,77 @@ export const FirstQuizPage: React.FC = () => {
               business can we offer?
             </h3>
 
+            <h3 className="FirstQuizPage__title FirstQuizPage__title--mobile">
+              How many
+              {' '}
+              <span className="FirstQuizPage__title--red">
+                specialities
+              </span>
+              {' '}
+              <br />
+              for your business can we offer?
+            </h3>
+
             <div className="FirstQuizPage__radiobuttons">
-              <label className="FirstQuizPage__radiobutton">
-                <input
-                  type="radio"
-                  className="FirstQuizPage__radio"
-                  name="radiobutton1"
-                />
-                <span className="FirstQuizPage__fake FirstQuizPage__fake--red"></span>
-                <span className="FirstQuizPage__text">1</span>
-              </label>
+              <Link
+                to="/firstQuestionAnswer"
+                className="FirstQuizPage__navigate"
+              >
+                <label className="FirstQuizPage__radiobutton">
+                  <input
+                    type="radio"
+                    className="FirstQuizPage__radio"
+                    name="radiobutton1"
+                  />
+                  <span className="FirstQuizPage__fake FirstQuizPage__fake--red"></span>
+                  <span className="FirstQuizPage__text">1</span>
+                </label>
+              </Link>
 
-              <label className="FirstQuizPage__radiobutton">
-                <input
-                  type="radio"
-                  className="FirstQuizPage__radio"
-                  name="radiobutton1"
-                />
-                <span className="FirstQuizPage__fake FirstQuizPage__fake--yellow"></span>
-                <span className="FirstQuizPage__text">5</span>
-              </label>
+              <Link
+                to="/firstQuestionAnswer"
+                className="FirstQuizPage__navigate"
+              >
+                <label className="FirstQuizPage__radiobutton">
+                  <input
+                    type="radio"
+                    className="FirstQuizPage__radio"
+                    name="radiobutton1"
+                  />
+                  <span className="FirstQuizPage__fake FirstQuizPage__fake--yellow"></span>
+                  <span className="FirstQuizPage__text">5</span>
+                </label>
+              </Link>
 
-              <label className="FirstQuizPage__radiobutton">
-                <input
-                  type="radio"
-                  className="FirstQuizPage__radio"
-                  name="radiobutton1"
-                />
-                <span className="FirstQuizPage__fake FirstQuizPage__fake--green"></span>
-                <span className="FirstQuizPage__text">3</span>
-              </label>
+              <Link
+                to="/firstQuestionAnswer"
+                className="FirstQuizPage__navigate"
+              >
+                <label className="FirstQuizPage__radiobutton">
+                  <input
+                    type="radio"
+                    className="FirstQuizPage__radio"
+                    name="radiobutton1"
+                  />
+                  <span className="FirstQuizPage__fake FirstQuizPage__fake--green"></span>
+                  <span className="FirstQuizPage__text">3</span>
+                </label>
+              </Link>
 
-              <label className="FirstQuizPage__radiobutton">
-                <input
-                  type="radio"
-                  className="FirstQuizPage__radio"
-                  name="radiobutton1"
-                />
-                <span className="FirstQuizPage__fake FirstQuizPage__fake--blue"></span>
-                <span className="FirstQuizPage__text">7</span>
-              </label>
+              <Link
+                to="/firstQuestionAnswer"
+                className="FirstQuizPage__navigate"
+              >
+                <label className="FirstQuizPage__radiobutton">
+                  <input
+                    type="radio"
+                    className="FirstQuizPage__radio"
+                    name="radiobutton1"
+                  />
+                  <span className="FirstQuizPage__fake FirstQuizPage__fake--blue"></span>
+                  <span className="FirstQuizPage__text">7</span>
+                </label>
+              </Link>
             </div>
 
             <img

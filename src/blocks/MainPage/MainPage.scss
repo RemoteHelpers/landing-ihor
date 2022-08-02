@@ -25,7 +25,7 @@
       height: 44px;
     }
 
-    @media (min-width: 1920px) {
+    @include on1920 {
       width: 320px;
       height: 63px;
     }
@@ -40,8 +40,16 @@
 
     @include onDesktop {
       margin: 0 0 3%;
-      font-size: 82px;
+      font-size: 41px;
       line-height: 100%;
+    }
+
+    @include on1440 {
+      font-size: 62px;
+    }
+
+    @include on1920 {
+      font-size: 82px;
     }
   }
 
@@ -99,9 +107,17 @@
     }
 
     @include onDesktop {
-      font-size: 20px;
+      font-size: 11px;
       width: 860px;
       margin: 0 auto 7%;
+    }
+
+    @include on1440 {
+      font-size: 15px;
+    }
+
+    @include on1920 {
+      font-size: 20px;
     }
   }
 
@@ -122,11 +138,21 @@
     transition: 0.3s all;
 
     @include onDesktop {
-      font-size: 28px;
+      font-size: 14px;
       line-height: 170.9%;
-      padding: 20px 60px;
+      padding: 10px 30px;
       border-radius: 10px;
-      margin: 0 auto 100px;
+      margin: 0 auto;
+    }
+
+    @include on1440 {
+      font-size: 21px;
+      padding: 15px 45px;
+    }
+
+    @include on1920 {
+      font-size: 28px;
+      padding: 20px 60px;
     }
 
     &:hover {
@@ -161,12 +187,12 @@
       height: 295px;
     }
 
-    @media (min-width: 1440px) {
+    @include on1440 {
       width: 525px;
       height: 391px;
     }
 
-    @media (min-width: 1920px) {
+    @include on1920 {
       left: -5%;
       width: 788.02px;
       height: 591.02px;
@@ -195,6 +221,10 @@
 
     @include onDesktop {
       display: inline;
+      font-size: 11px;
+    }
+
+    @include on1440 {
       font-size: 14px;
     }
   }

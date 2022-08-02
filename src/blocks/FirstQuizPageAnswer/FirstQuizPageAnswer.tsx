@@ -1,4 +1,5 @@
 import React from 'react';
+import { Buttons, ButtonsDesktop } from '../Buttons/Buttons';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
 import Viber from '../../images/social/viber.svg';
@@ -77,7 +78,17 @@ export const FirstQuizPageAnswer: React.FC = () => {
               </span>
               /4
             </div>
+
+            <ButtonsDesktop
+              previousUrl="/firstQuestion"
+              nextUrl="/secondQuestion"
+            />
           </main>
+
+          {/* <Buttons
+            previousUrl="/firstQuestion"
+            nextUrl="/firstQuestion"
+          /> */}
         </div>
 
         <footer className="footer">
@@ -215,9 +226,10 @@ export const FirstQuizPageAnswer: React.FC = () => {
               /4
             </div>
 
-            {/* <div className="FirstQuizPageAnswer__buttons--mobile">
-
-            </div> */}
+            <Buttons
+              previousUrl="/firstQuestion"
+              nextUrl="/secondQuestion"
+            />
           </main>
         </div>
 
