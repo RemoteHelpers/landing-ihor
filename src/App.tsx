@@ -16,7 +16,9 @@ export const App: React.FC = () => {
 
         <Route path="/firstQuestion" element={<FirstQuizPage />} />
 
-        <Route path="/firstQuestionAnswer" element={<FirstQuizPageAnswer />} />
+        <Route path="/correctFirstAnswer" element={<FirstQuizPageAnswer answer />} />
+
+        <Route path="/incorrectFirstAnswer" element={<FirstQuizPageAnswer answer={false} />} />
 
         <Route path="/secondQuestion" element={<SecondQuizPage />} />
 

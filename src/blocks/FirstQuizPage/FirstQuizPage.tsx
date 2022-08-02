@@ -13,6 +13,7 @@ import '../header.scss';
 import '../footer.scss';
 import '../star.scss';
 import '../notification.scss';
+import '../numberOfItem.scss';
 
 export const FirstQuizPage: React.FC = () => {
   const [timer, setTimer] = useState<number>(15);
@@ -38,13 +39,13 @@ export const FirstQuizPage: React.FC = () => {
     <div className="FirstQuizPage">
       <div className="FirstQuizPage__content-wrapper">
         <div className="container container__FirstQuizPage">
-          <header className="header FirstQuizPage__header">
+          <header className="header">
             <img
               src={Logo}
               alt="Logotype"
               className="header__logo"
             />
-            <p className="header__text">
+            <p className="header__text header__text--first-form">
               The outstaffing company in Digital Marketing
             </p>
           </header>
@@ -75,7 +76,7 @@ export const FirstQuizPage: React.FC = () => {
 
             <div className="FirstQuizPage__radiobuttons">
               <Link
-                to="/firstQuestionAnswer"
+                to="/incorrectFirstAnswer"
                 className="FirstQuizPage__navigate"
               >
                 <label className="FirstQuizPage__radiobutton">
@@ -90,7 +91,7 @@ export const FirstQuizPage: React.FC = () => {
               </Link>
 
               <Link
-                to="/firstQuestionAnswer"
+                to="/incorrectFirstAnswer"
                 className="FirstQuizPage__navigate"
               >
                 <label className="FirstQuizPage__radiobutton">
@@ -105,7 +106,7 @@ export const FirstQuizPage: React.FC = () => {
               </Link>
 
               <Link
-                to="/firstQuestionAnswer"
+                to="/incorrectFirstAnswer"
                 className="FirstQuizPage__navigate"
               >
                 <label className="FirstQuizPage__radiobutton">
@@ -120,7 +121,7 @@ export const FirstQuizPage: React.FC = () => {
               </Link>
 
               <Link
-                to="/firstQuestionAnswer"
+                to="/correctFirstAnswer"
                 className="FirstQuizPage__navigate"
               >
                 <label className="FirstQuizPage__radiobutton">
@@ -141,8 +142,8 @@ export const FirstQuizPage: React.FC = () => {
               className="FirstQuizPage__illustration"
             />
 
-            <div className="FirstQuizPage__numberOfItem">
-              <span className="FirstQuizPage__numberOfItem--active">
+            <div className="numberOfItem">
+              <span className="numberOfItem--active">
                 1
               </span>
               /4
@@ -152,14 +153,14 @@ export const FirstQuizPage: React.FC = () => {
 
         <footer className="footer">
           <ul className="footer__social">
-            <li className="MainPage__social-item">
+            <li className="footer__social-item">
               <a
                 href="https://wa.me/380997101033"
                 className="footer__social-link"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={WhatsApp} alt="WhatsApp logo" className="MainPage__social-logo" />
+                <img src={WhatsApp} alt="WhatsApp logo" className="footer__social-logo" />
                 <span>+38 099 710 10 33</span>
               </a>
             </li>
@@ -170,18 +171,18 @@ export const FirstQuizPage: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={Viber} alt="Viber logo" className="MainPage__social-logo" />
+                <img src={Viber} alt="Viber logo" className="footer__social-logo" />
                 <span>+97 250 901 45 09</span>
               </a>
             </li>
-            <li className="footer__social-item MainPage__social-item--desktop">
+            <li className="footer__social-item footer__social-item--desktop">
               <a
                 href="skype:youisrael?chat"
                 className="footer__social-link"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={Skype} alt="Skype logo" className="MainPage__social-logo" />
+                <img src={Skype} alt="Skype logo" className="footer__social-logo" />
                 <span>youisrael</span>
               </a>
             </li>
@@ -212,7 +213,7 @@ export const FirstQuizPage: React.FC = () => {
       </div>
 
       <div className="FirstQuizPage__info">
-        <header className="FirstQuizPage__header--desktop">
+        <header className="header--desktop">
           <img
             src={Logo}
             alt="Logotype"
@@ -225,8 +226,8 @@ export const FirstQuizPage: React.FC = () => {
           </p>
         </header>
 
-        <footer className="FirstQuizPage__footer--desktop">
-          <button type="button" className="FirstQuizPage__footer-text">
+        <footer>
+          <button type="button" className="footer__text">
             I&apos;m curious, want to get a consultation
           </button>
         </footer>

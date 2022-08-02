@@ -4,6 +4,13 @@
   @include onDesktop {
     display: none;
   }
+
+  &--desktop {
+    @include onDesktop {
+      display: block;
+      margin: 0 auto;
+    }
+  }
   
   &__logo {
     margin-bottom: 0.5%;
@@ -18,12 +25,12 @@
       height: 65px;
     }
 
-    @media (min-width: 1440px) {
+    @include on1440 {
       width: 412px;
       height: 97px;
     }
 
-    @media (min-width: 1920px) {
+    @include on1920 {
       width: 550px;
       height: 130px;
     }
@@ -37,6 +44,10 @@
     margin: 0;
 
     color: #1a1a1c;
+
+    &--first-form {
+      display: block;
+    }
 
     &--inline {
       font-weight: 500;
@@ -59,11 +70,11 @@
       color: #1a1a1c;
     }
 
-    @media (min-width: 1440px) {
+    @include on1440 {
       font-size: 18px;
     }
 
-    @media (min-width: 1920px) {
+    @include on1920 {
       font-size: 24px;
     }
   }

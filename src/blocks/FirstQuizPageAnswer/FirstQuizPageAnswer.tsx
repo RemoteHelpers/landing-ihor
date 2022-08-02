@@ -10,13 +10,18 @@ import Ill from '../../images/FirstAnswer/ill.svg';
 import './FirstQuizPageAnswer.scss';
 import '../header.scss';
 import '../footer.scss';
+import '../numberOfItem.scss';
 
-export const FirstQuizPageAnswer: React.FC = () => {
+type Props = {
+  answer: boolean,
+};
+
+export const FirstQuizPageAnswer: React.FC<Props> = ({ answer }) => {
   return (
     <div className="FirstQuizPageAnswer">
       <div className="FirstQuizPageAnswer__content-wrapper">
         <div className="container container__FirstQuizPageAnswer">
-          <header className="header FirstQuizPageAnswer__header">
+          <header className="header">
             <img
               src={Logo}
               alt="Logotype"
@@ -72,8 +77,8 @@ export const FirstQuizPageAnswer: React.FC = () => {
               </div>
             </div>
 
-            <div className="FirstQuizPageAnswer__numberOfItem">
-              <span className="FirstQuizPageAnswer__numberOfItem--active">
+            <div className="numberOfItem">
+              <span className="numberOfItem--active">
                 1
               </span>
               /4
@@ -84,23 +89,18 @@ export const FirstQuizPageAnswer: React.FC = () => {
               nextUrl="/secondQuestion"
             />
           </main>
-
-          {/* <Buttons
-            previousUrl="/firstQuestion"
-            nextUrl="/firstQuestion"
-          /> */}
         </div>
 
         <footer className="footer">
           <ul className="footer__social">
-            <li className="MainPage__social-item">
+            <li className="footer__social-item">
               <a
                 href="https://wa.me/380997101033"
                 className="footer__social-link"
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={WhatsApp} alt="WhatsApp logo" className="MainPage__social-logo" />
+                <img src={WhatsApp} alt="WhatsApp logo" className="footer__social-logo" />
                 <span>+38 099 710 10 33</span>
               </a>
             </li>
@@ -111,7 +111,7 @@ export const FirstQuizPageAnswer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={Viber} alt="Viber logo" className="MainPage__social-logo" />
+                <img src={Viber} alt="Viber logo" className="footer__social-logo" />
                 <span>+97 250 901 45 09</span>
               </a>
             </li>
@@ -122,7 +122,7 @@ export const FirstQuizPageAnswer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <img src={Skype} alt="Skype logo" className="MainPage__social-logo" />
+                <img src={Skype} alt="Skype logo" className="footer__social-logo" />
                 <span>youisrael</span>
               </a>
             </li>
@@ -154,7 +154,7 @@ export const FirstQuizPageAnswer: React.FC = () => {
 
       <div className="FirstQuizPageAnswer__info">
         <div className="FirstQuizPageAnswer__info--content-wrapper">
-          <header className="FirstQuizPageAnswer__header--desktop">
+          <header className="header--desktop">
             <img
               src={Logo}
               alt="Logotype"
@@ -219,8 +219,8 @@ export const FirstQuizPageAnswer: React.FC = () => {
               day shift or the night shift.
             </p>
 
-            <div className="FirstQuizPageAnswer__numberOfItem--mobile">
-              <span className="FirstQuizPageAnswer__numberOfItem--active">
+            <div className="numberOfItem--mobile">
+              <span className="numberOfItem--active">
                 1
               </span>
               /4
@@ -233,14 +233,22 @@ export const FirstQuizPageAnswer: React.FC = () => {
           </main>
         </div>
 
-        <footer className="FirstQuizPageAnswer__footer-info">
-          <button type="button" className="FirstQuizPageAnswer__footer-text">
+        <footer>
+          <button type="button" className="footer__text footer__button">
             I&apos;m curious, want to get a consultation
           </button>
         </footer>
       </div>
 
       <img src={Ill} alt="illustration" className="FirstQuizPageAnswer__illustration--mobile" />
+
+      {answer && (
+        <div className="star star--true"></div>
+      )}
+
+      {!answer && (
+        <div className="star star--false"></div>
+      )}
     </div>
   );
 };

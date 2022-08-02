@@ -32,10 +32,28 @@
 
   &--true {
     background-image: url('../images/star/Star-green.svg');
+    background-size: cover;
+    top: inherit;
+    bottom: 17%;
+
+    @include onDesktop {
+      bottom: inherit;
+      top: 40%;
+      right: 4%;
+    }
   }
 
   &--false {
     background-image: url('../images/star/Star-red.svg');
+    background-size: cover;
+    top: inherit;
+    bottom: 17%;
+
+    @include onDesktop {
+      bottom: inherit;
+      top: 40%;
+      right: 4%;
+    }
   }
 
   &__text {

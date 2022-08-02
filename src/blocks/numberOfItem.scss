@@ -1,0 +1,51 @@
+@import '../utils/mixins.scss';
+
+.numberOfItem {
+  position: absolute;
+  left: 5%;
+  bottom: 6%;
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 15px;
+  line-height: 170.9%;
+  text-transform: uppercase;
+  color: #1a1a1c;
+
+  @include on1440 {
+    font-size: 22px;
+  }
+
+  @include on1920 {
+    font-size: 29px;
+  }
+
+  &--mobile {
+    position: absolute;
+    bottom: 5%;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 14px;
+    line-height: 170.9%;
+    text-transform: uppercase;
+    color: #1a1a1c;
+  }
+
+  &--active {
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 33px;
+    line-height: 170.9%;
+    text-transform: uppercase;
+
+    color: #005595;
+
+    @include onDesktop {
+      font-size: 30px;
+    }
+
+    @include on1440 {
+      font-size: 44px;
+    }
+
+    @include on1920 {
+      font-size: 59px;
+    }
+  }
+}

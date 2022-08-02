@@ -64,59 +64,59 @@ export const MainPage: React.FC = () => {
       </div>
 
       <footer className="footer">
-        <ul className="MainPage__social">
-          <li className="MainPage__social-item">
+        <ul className="footer__social">
+          <li className="footer__social-item">
             <a
               href="https://wa.me/380997101033"
-              className="MainPage__social-link"
+              className="footer__social-link"
               target="_blank"
               rel="noreferrer"
             >
-              <img src={WhatsApp} alt="WhatsApp logo" className="MainPage__social-logo" />
+              <img src={WhatsApp} alt="WhatsApp logo" className="footer__social-logo" />
               <span>+38 099 710 10 33</span>
             </a>
           </li>
-          <li className="MainPage__social-item MainPage__social-item--desktop">
+          <li className="footer__social-item footer__social-item--desktop">
             <a
               href="viber://chat?number=972509014509"
-              className="MainPage__social-link"
+              className="footer__social-link"
               target="_blank"
               rel="noreferrer"
             >
-              <img src={Viber} alt="Viber logo" className="MainPage__social-logo" />
+              <img src={Viber} alt="Viber logo" className="footer__social-logo" />
               <span>+97 250 901 45 09</span>
             </a>
           </li>
-          <li className="MainPage__social-item MainPage__social-item--desktop">
+          <li className="footer__social-item footer__social-item--desktop">
             <a
               href="skype:youisrael?chat"
-              className="MainPage__social-link"
+              className="footer__social-link"
               target="_blank"
               rel="noreferrer"
             >
-              <img src={Skype} alt="Skype logo" className="MainPage__social-logo" />
+              <img src={Skype} alt="Skype logo" className="footer__social-logo" />
               <span>youisrael</span>
             </a>
           </li>
-          <li className="MainPage__social-item">
+          <li className="footer__social-item">
             <a
               href="https://telegram.me/nikokardc"
-              className="MainPage__social-link"
+              className="footer__social-link"
               target="_blank"
               rel="noreferrer"
             >
-              <img src={Telegram} alt="Telegram logo" className="MainPage__social-logo" />
+              <img src={Telegram} alt="Telegram logo" className="footer__social-logo" />
               <span>@nikokardc</span>
             </a>
           </li>
-          <li className="MainPage__social-item">
+          <li className="footer__social-item">
             <a
               href="mailto:sales@rh-s.com"
-              className="MainPage__social-link"
+              className="footer__social-link"
               target="_blank"
               rel="noreferrer"
             >
-              <img src={Email} alt="Email logo" className="MainPage__social-logo" />
+              <img src={Email} alt="Email logo" className="footer__social-logo" />
               <span>sales@rh-s.com</span>
             </a>
           </li>

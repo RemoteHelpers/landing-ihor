@@ -22,11 +22,11 @@
       padding: 40px 6% 0;
     }
 
-    @media (min-width: 1440px) {
+    @include on1440 {
       padding: 60px 6% 0;
     }
 
-    @media (min-width: 1920px) {
+    @include on1920 {
       padding: 80px 6% 0;
     }
   }

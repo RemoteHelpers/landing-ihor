@@ -211,24 +211,6 @@
     line-height: 160%;
   }
 
-  &__social-item {
-    &--desktop {
-      display: none;
-      font-weight: 400;
-      font-size: 11px;
-      line-height: 160%;
-    }
-
-    @include onDesktop {
-      display: inline;
-      font-size: 11px;
-    }
-
-    @include on1440 {
-      font-size: 14px;
-    }
-  }
-
   &__social-link {
     color: #828282;
     display: flex;
@@ -239,11 +221,6 @@
     &:hover {
       transform: scale(115%);
     }
-  }
-
-  &__social-logo {
-    width: 15px;
-    height: 15px;
   }
 }
 

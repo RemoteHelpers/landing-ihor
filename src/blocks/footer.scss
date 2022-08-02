@@ -25,6 +25,10 @@
       display: inline;
       font-size: 11px;
     }
+
+    @include on1440 {
+      font-size: 14px;
+    }
   }
 
   &__social-link {
@@ -42,5 +46,59 @@
   &__social-logo {
     width: 15px;
     height: 15px;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 170.9%;
+    color: #fff;
+    padding: 6px 36px;
+
+    background: #ff1111;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: 0.3s all;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #fff;
+      border: 1px solid #ff1111;
+      color: #ff1111;
+    }
+
+    @include onDesktop {
+      font-size: 10px;
+    }
+
+    @include on1440 {
+      font-size: 15px;
+    }
+
+    @include on1920 {
+      font-size: 20px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    border-radius: 0;
+
+    @include onDesktop {
+      width: 60%;
+      border-radius: 10px
+    }
+
+    @include on1440 {
+      width: 78%;
+      border-radius: 10px
+    }
+
+    @include on1920 {
+      width: 70%;
+      border-radius: 10px
+    }
   }
 }

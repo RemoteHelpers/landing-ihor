@@ -15,51 +15,6 @@
     padding: 0;
   }
 
-  &__header {
-    &--desktop {
-      display: none;
-      
-      @include onDesktop {
-        display: block;
-        margin: 0 auto;
-      }
-    }
-  }
-
-  &__footer-text {
-    position: relative;
-    z-index: 2;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 170.9%;
-    color: #fff;
-    padding: 6px 36px;
-
-    background: #ff1111;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    transition: 0.3s all;
-
-    &:hover {
-      cursor: pointer;
-      background-color: #fff;
-      border: 1px solid #ff1111;
-      color: #ff1111;
-    }
-
-    @include onDesktop {
-      font-size: 10px;
-    }
-
-    @media (min-width: 1440px) {
-      font-size: 15px;
-    }
-
-    @media (min-width: 1920px) {
-      font-size: 20px;
-    }
-  }
-
   &__info {
     display: none;
     background-image: url("../../images/quiz-ill.svg");
@@ -73,11 +28,11 @@
       height: 100vh;
     }
 
-    @media (min-width: 1440px) {
+    @include on1440 {
       padding: 60px 53px 53px;
     }
 
-    @media (min-width: 1920px) {
+    @include on1920 {
       padding: 80px 70px 70px;
     }
   }
@@ -242,11 +197,11 @@
     font-size: 32px;
     color: #1a1a1c;
 
-    @media (min-width: 1440px) {
+    @include on1440 {
       font-size: 43px;
     }
 
-    @media (min-width: 1920px) {
+    @include on1920 {
       font-size: 64px;
     }
   }
@@ -269,55 +224,17 @@
       right: 22%;
     }
 
-    @media (min-width: 1440px) {
+    @include on1440 {
       bottom: 9%;
       width: 754px;
       height: 505px;
     }
 
-    @media (min-width: 1920px) {
+    @include on1920 {
       bottom: 9%;
       right: 24%;
       width: 1007.24px;
       height: 755.43px;
-    }
-  }
-
-  &__numberOfItem {
-    position: absolute;
-    left: 5%;
-    bottom: 6%;
-
-    font-family: 'Balsamiq Sans', cursive;font-size: 14px;
-    line-height: 170.9%;
-    text-transform: uppercase;
-
-    color: #1a1a1c;
-
-    &--active {
-      font-family: 'Balsamiq Sans';
-      font-style: normal;
-      font-size: 33px;
-      line-height: 170.9%;
-      text-transform: uppercase;
-
-      color: #005595;
-
-      @media (min-width: 1440px) {
-        font-size: 44px;
-      }
-  
-      @media (min-width: 1920px) {
-        font-size: 59px;
-      }
-    }
-
-    @media (min-width: 1440px) {
-      font-size: 22px;
-    }
-
-    @media (min-width: 1920px) {
-      font-size: 29px;
     }
   }
 
