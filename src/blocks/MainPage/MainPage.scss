@@ -1,7 +1,8 @@
 @import '../../utils/mixins.scss';
+@import '../../utils/colors.scss';
 
 .MainPage {
-  background-image: radial-gradient(50% 50% at 80% 50%, rgba(207, 32, 251, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
+  background-image: radial-gradient(50% 50% at 80% 50%, $pink-gradient 0%, $black-gradient 100%);
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -13,7 +14,7 @@
 
   @include onDesktop {
     padding: 50px 0 0;
-    background-image: linear-gradient(to left bottom, rgba(207, 32, 251, 0.11), transparent 30%, rgba(207, 32, 251, 0.11));
+    background-image: linear-gradient(to left bottom, $pink-gradient, transparent 30%, $pink-gradient);
   }
 
   &__logo {
@@ -36,7 +37,6 @@
     font-weight: 700;
     font-size: 26px;
     line-height: 110%;
-    color: #1a1a1c;
 
     @include onDesktop {
       margin: 0 0 3%;
@@ -63,11 +63,11 @@
       font-weight: 700;
       position: relative;
 
-      border-bottom: 2px solid #f9e862;
+      border-bottom: 2px solid $yellow-underline;
       transition: 0.3s all;
       
       &:hover {
-        background-color: #f9e862;
+        background-color: $yellow-underline;
         border-radius: 3px;
         cursor: pointer;
       }
@@ -77,11 +77,11 @@
       font-weight: 700;
       position: relative;
 
-      border-bottom: 2px solid #005194;
+      border-bottom: 2px solid $blue-underline;
       transition: 0.3s all;
       
       &:hover {
-        background-color: #005194;
+        background-color: $blue-underline;
         color: #fff;
         border-radius: 3px;
         cursor: pointer;
@@ -93,10 +93,10 @@
       position: relative;
       transition: 0.3s all;
 
-      border-bottom: 2px solid #ff1111;
+      border-bottom: 2px solid $red-underline;
       
       &:hover {
-        background-color: #ff1111;
+        background-color: $red-underline;
         border-radius: 3px;
         cursor: pointer;
       }
@@ -130,9 +130,9 @@
     line-height: 170.9%;
     text-align: center;
 
-    color: #ff5252;
+    color: $main-red;
     background-color: transparent;
-    border: 2px solid #ff5252;
+    border: 2px solid $main-red;
     border-radius: 6px;
     padding: 19px 28px;
     transition: 0.3s all;
@@ -156,9 +156,9 @@
     }
 
     &:hover {
-      color: white;
+      color: $white;
       cursor: pointer;
-      background-color: #ff5252;
+      background-color: $main-red;
     }
   }
 
@@ -212,7 +212,7 @@
   }
 
   &__social-link {
-    color: #828282;
+    color: $social-links;
     display: flex;
     gap: 4px;
     align-items: center;

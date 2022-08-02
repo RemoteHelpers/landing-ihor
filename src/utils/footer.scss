@@ -32,6 +32,8 @@
   }
 
   &__social-link {
+    position: relative;
+    z-index: 2;
     color: #828282;
     display: flex;
     gap: 4px;
@@ -49,8 +51,6 @@
   }
 
   &__text {
-    position: relative;
-    z-index: 2;
     font-weight: 700;
     font-size: 13px;
     line-height: 170.9%;

@@ -8,9 +8,10 @@ import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
 import Ill from '../../images/FirstAnswer/ill.svg';
 import './FirstQuizPageAnswer.scss';
-import '../header.scss';
-import '../footer.scss';
-import '../numberOfItem.scss';
+import '../../utils/header.scss';
+import '../../utils/footer.scss';
+import '../../utils/numberOfItem.scss';
+import '../../utils/container.scss';
 
 type Props = {
   answer: boolean,

@@ -9,11 +9,12 @@ import Skype from '../../images/social/skype.svg';
 import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
 import './FirstQuizPage.scss';
-import '../header.scss';
-import '../footer.scss';
-import '../star.scss';
-import '../notification.scss';
-import '../numberOfItem.scss';
+import '../../utils/header.scss';
+import '../../utils/footer.scss';
+import '../../utils/star.scss';
+import '../../utils/notification.scss';
+import '../../utils/numberOfItem.scss';
+import '../../utils/container.scss';
 
 export const FirstQuizPage: React.FC = () => {
   const [timer, setTimer] = useState<number>(15);

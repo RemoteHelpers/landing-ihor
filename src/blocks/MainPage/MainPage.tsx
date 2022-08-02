@@ -9,7 +9,7 @@ import Skype from '../../images/social/skype.svg';
 import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
 import './MainPage.scss';
-import '../container.scss';
+import '../../utils/container.scss';
 
 export const MainPage: React.FC = () => {
   return (
