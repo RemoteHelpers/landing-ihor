@@ -1,7 +1,7 @@
 @import '../../utils/mixins.scss';
 @import '../../utils/colors.scss';
 
-.FirstQuizPage {
+.SecondQuizPage {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -85,13 +85,14 @@
       }
     }
 
-    &--red {
-      border-bottom: 2px solid $main-red;
+    &--blue {
+      border-bottom: 2px solid $blue-radiobutton;
       transition: 0.3s all;
 
       &:hover {
-        background-color: $main-red;
+        background-color: $blue-radiobutton;
         border-radius: 3px;
+        color: $white;
         cursor: pointer;
       }
     }
@@ -110,101 +111,83 @@
     }
   }
 
-  &__radiobuttons {
-    position: relative;
-    z-index: 2;
+  &__buttons {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 24px 0;
+    gap: 8%;
+    padding-top: 5%;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 170.9%;
 
     @include onDesktop {
+      font-size: 17px;
       justify-content: left;
     }
-  }
-
-  &__radiobutton {
-    display: flex;
-    justify-content: left;
-    padding-left: 1%;
-    display: flex;
-    align-items: center;
-    gap: 13px;
-
-    @include onDesktop {
-      justify-content: left;
-      width: 100%;
-      margin-left: 10%;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  &__radio {
-    display: none;
-
-    &:checked + 
-    .FirstQuizPage__fake::before {
-      opacity: 1;
-    }
-  }
-
-  &__fake {
-    display: inline-block;
-    height: 47px;
-    width: 47px;
-    position: relative;
-
-    &--red {
-      border: 3px solid $main-red;
-      border-radius: 50%;
-
-      @include checkbox {
-        background-color: $main-red;
-      }
-    }
-
-    &--yellow {
-      border: 3px solid $yellow-radiobutton;
-      border-radius: 50%;
-
-      @include checkbox {
-        background-color: $yellow-radiobutton;
-      }
-    }
-
-    &--green {
-      border: 3px solid $green-radiobutton;
-      border-radius: 50%;
-
-      @include checkbox {
-        background-color: $green-radiobutton;
-      }
-    }
-
-    &--blue {
-      border: 3px solid $blue-radiobutton;
-      border-radius: 50%;
-
-      @include checkbox {
-        background-color: $blue-radiobutton;
-      }
-    }
-  }
-
-  &__text {
-    font-family: 'Balsamiq Sans', cursive;
-    font-size: 32px;
-    color: #1a1a1c;
 
     @include on1440 {
-      font-size: 43px;
+      font-size: 22px;
     }
 
     @include on1920 {
-      font-size: 64px;
+      font-size: 33px;
+    }
+  }
+
+  &__button {
+    position: relative;
+    z-index: 2;
+    width: 144px;
+    height: 86px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.3s all;
+
+    @include on1440 {
+      width: 217px;
+      height: 129px;
+    }
+
+    @include on1920 {
+      width: 326px;
+      height: 194px;
+    }
+
+    &:hover {
+      transform: scale(110%);
+    }
+
+    &--true {
+      background-image: url('../../images/SecondQuizPage/true.svg');
+      background-size: cover;
+    }
+
+    &--false {
+      background-image: url('../../images/SecondQuizPage/false.svg');
+      background-size: cover;
+    }
+  }
+
+  &__arrow {
+    display: none;
+    position: absolute;
+  
+    @include onDesktop{
+      left: -20%;
+      display: block;
+    }
+
+    &--mobile {
+      display: flex;
+      justify-content: center;
+      left: -25%;
+
+      @include onDesktop {
+        display: none;
+      }
     }
   }
 
@@ -237,15 +220,6 @@
       right: 24%;
       width: 1007.24px;
       height: 755.43px;
-    }
-  }
-
-  &__navigate {
-    display: block;
-    width: 40%;
-
-    @include onDesktop {
-      width: 60%;
     }
   }
 }

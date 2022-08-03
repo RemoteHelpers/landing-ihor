@@ -163,7 +163,7 @@
   }
 
   &__illustration {
-    z-index: -1;
+    z-index: 1;
     position: absolute;
     left: -6%;
     bottom: 30px;
@@ -236,12 +236,10 @@
 
 @keyframes moveOnDesktop {
   from {
-    z-index: -1;
     bottom: 30px;
   }
 
   to {
-    z-index: 1;
     bottom: 100px;
   }
 }
