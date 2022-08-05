@@ -1,0 +1,248 @@
+@import '../../utils/mixins.scss';
+@import '../../utils/colors.scss';
+
+.ThirdQuizPageAnswer {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+
+  @include onDesktop {
+    background-image: radial-gradient(50% 50% at 70% 30%, rgba(255, 9, 9, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
+  }
+
+  &__main {
+    text-align: left;
+
+    &--mobile {
+      text-align: left;
+      height: 100%;
+      padding: 5% 6%;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__paragraph {
+    font-size: 12px;
+    line-height: 150%;
+
+    @include on1440 {
+      font-size: 18px;
+    }
+
+    @include on1920 {
+      font-size: 24px;
+    }
+
+    &--red {
+      font-size: 35px;
+      font-family: 'Balsamiq Sans', cursive;
+
+      color: $red-underline;
+    }
+
+    &--mobile {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-size: 16px;
+      line-height: 130%;
+
+      &--add {
+        margin: 0 0 3%;
+        font-size: 16px;
+        line-height: 130%;
+        width: 85%;
+        position: relative;
+        z-index: 1;
+      }
+
+      &--red {
+        font-size: 35px;
+        font-family: 'Balsamiq Sans', cursive;
+  
+        color: $red-underline;
+      }
+    }
+  }
+
+  &__point {
+    display: flex;
+    align-items: flex-start;
+
+    &--mobile {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: baseline;
+    }
+  }
+
+  &__point-image {
+    &--mobile {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  &__point-paragraph {
+    margin: 0;
+    font-size: 12px;
+    line-height: 150%;
+
+    @include on1440 {
+      font-size: 18px;
+    }
+
+    @include on1920 {
+      font-size: 24px;
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+
+    &--mobile {
+      margin: 0;
+      font-size: 16px;
+      line-height: 130%;
+    }
+  }
+
+  &__content-submit {
+    font-size: 12px;
+    line-height: 150%;
+
+    @include on1440 {
+      font-size: 18px;
+    }
+
+    @include on1920 {
+      font-size: 24px;
+    }
+
+    &--mobile {
+      font-size: 16px;
+      line-height: 130%;
+    }
+  }
+
+  &__info {
+    width: 100%;
+    background-image: url("../../images/quiz-ill.svg");
+    display: flex;
+    padding: 4.5% 0 0;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    @include onDesktop {
+      padding: 40px 35px 35px;
+      width: 40%;
+    }
+
+    @include on1440 {
+      padding: 60px 53px 53px;
+    }
+
+    @include on1920 {
+      padding: 80px 70px 70px;
+    }
+
+    &--content-wrapper {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__content-wrapper {
+    display: none;
+  
+    @include onDesktop {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      width: 60%;
+    }
+  }
+
+  &__title {
+    margin: 0 0 4%;
+    padding: 5% 0;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 130%;
+
+    color: #1a1a1c;
+
+    &--red {
+      border-bottom: 2px solid $red-underline;
+      transition: 0.3s all;
+
+      &:hover {
+        background-color: $red-underline;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
+
+    @include onTablet {
+      padding: 2% 0;
+    }
+
+    @include onDesktop {
+      padding: 0;
+      font-size: 24px;
+      text-align: left;
+    }
+
+    @include on1440 {
+      font-size: 36px;
+    }
+
+    @include on1920 {
+      font-size: 48px;
+    }
+  
+    &--mobile {
+      text-align: center;
+      margin: 0 0 4%;
+    }
+  }
+
+  &__illustration {
+    &--mobile {
+      position: absolute;
+      right: 0%;
+      bottom: 10%;
+
+      @media (max-width: 360px) {
+        right: -12%;
+      }
+
+      @include onDesktop {
+        right: 35%;
+      }
+
+      @include on1440 {
+        bottom: 2%;
+        width: 480px;
+        right: 33%;
+      }
+
+      @include on1920 {
+        bottom: 2%;
+        width: 720px;
+        right: 33%;
+      }
+    }
+  }
+}

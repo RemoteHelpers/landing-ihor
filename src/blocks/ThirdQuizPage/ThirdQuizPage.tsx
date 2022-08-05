@@ -17,11 +17,12 @@ import '../../utils/star.scss';
 import '../../utils/notification.scss';
 import '../../utils/numberOfItem.scss';
 import '../../utils/container.scss';
-import './SecondQuizPage.scss';
+import './ThirdQuizPage.scss';
 
-export const SecondQuizPage: React.FC = () => {
+export const ThirdQuizPage: React.FC = () => {
   const [timer, setTimer] = useState<number>(15);
   const [isNotification, setIsNotification] = useState<boolean>(false);
+  // const [selectedValue, setSelectedValue] = useState<number | null>(null);
 
   useEffect(() => {
     if (timer > 0) {
@@ -39,10 +40,14 @@ export const SecondQuizPage: React.FC = () => {
     return undefined;
   }, [timer]);
 
+  // const handleOnChange = (e) => {
+  //   setSelectedValue(e.target.value);
+  // };
+
   return (
-    <div className="SecondQuizPage">
-      <div className="SecondQuizPage__content-wrapper">
-        <div className="container container__SecondQuizPage">
+    <div className="ThirdQuizPage">
+      <div className="ThirdQuizPage__content-wrapper">
+        <div className="container container__ThirdQuizPage">
           <header className="header">
             <img
               src={Logo}
@@ -54,47 +59,42 @@ export const SecondQuizPage: React.FC = () => {
             </p>
           </header>
 
-          <main className="SecondQuizPage__main">
-            <h3 className="SecondQuizPage__title SecondQuizPage__title--desktop">
-              Our candidates work
+          <main className="ThirdQuizPage__main">
+            <h3 className="ThirdQuizPage__title ThirdQuizPage__title--desktop">
+              What percentage of candidates
               {' '}
-              <span className="SecondQuizPage__title--blue">
-                8 and 4 hours
+              <span className="ThirdQuizPage__title--red">
+                intern
               </span>
               {' '}
-              a day
+              with our company?
             </h3>
 
-            <h3 className="SecondQuizPage__title SecondQuizPage__title--mobile">
-              Our candidates work
+            <h3 className="ThirdQuizPage__title ThirdQuizPage__title--mobile">
+              What percentage of candidates
               {' '}
-              <span className="SecondQuizPage__title--blue">
-                8 and 4 hours
+              <span className="ThirdQuizPage__title--red">
+                intern
               </span>
               {' '}
-              a day
+              with our company?
             </h3>
 
-            <div className="SecondQuizPage__buttons">
-              <Link
-                to="/correctSecondAnswer"
-                className="SecondQuizPage__navigate"
-              >
-                <div className="SecondQuizPage__button SecondQuizPage__button--true">True</div>
-              </Link>
-
-              <Link
-                to="/incorrectSecondAnswer"
-                className="SecondQuizPage__navigate"
-              >
-                <div className="SecondQuizPage__button SecondQuizPage__button--false">False</div>
-              </Link>
+            <div className="ThirdQuizPage__slider">
+              <input
+                type="range"
+                className="ThirdQuizPage__fader"
+                // onChange={handleOnChange}
+              />
+              {/* {selectedValue && (
+                <h1>selectedValue</h1>
+              )} */}
             </div>
 
             <img
               src={Illustration}
               alt="illustration"
-              className="SecondQuizPage__illustration"
+              className="ThirdQuizPage__illustration"
             />
 
             <div className="numberOfItem">
@@ -104,7 +104,7 @@ export const SecondQuizPage: React.FC = () => {
               /4
             </div>
 
-            <div className="buttons SecondQuizPage__arrow">
+            <div className="buttons ThirdQuizPage__arrow">
               <Link
                 className="buttons__previous"
                 to="/firstQuestion"
@@ -113,7 +113,7 @@ export const SecondQuizPage: React.FC = () => {
                 Previous
               </Link>
             </div>
-            <div className="buttons SecondQuizPage__arrow--mobile">
+            <div className="buttons ThirdQuizPage__arrow--mobile">
               <Link
                 className="buttons__previous"
                 to="/firstQuestion"
@@ -186,7 +186,7 @@ export const SecondQuizPage: React.FC = () => {
         </footer>
       </div>
 
-      <div className="SecondQuizPage__info">
+      <div className="ThirdQuizPage__info">
         <header className="header--desktop">
           <img
             src={Logo}

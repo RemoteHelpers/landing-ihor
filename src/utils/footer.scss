@@ -11,6 +11,23 @@
     font-weight: 400;
     font-size: 10px;
     line-height: 160%;
+
+    &--companies {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 5px;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 160%;
+      padding: 0 3%;
+
+      @include onDesktop {
+        gap: 21px;
+      }
+    }
   }
 
   &__social-item {
@@ -19,15 +36,15 @@
       font-weight: 400;
       font-size: 11px;
       line-height: 160%;
-    }
 
-    @include onDesktop {
-      display: inline;
-      font-size: 11px;
-    }
-
-    @include on1440 {
-      font-size: 14px;
+      @include onDesktop {
+        display: inline;
+        font-size: 11px;
+      }
+  
+      @include on1440 {
+        font-size: 14px;
+      }
     }
   }
 
@@ -48,6 +65,22 @@
   &__social-logo {
     width: 15px;
     height: 15px;
+    transition: 0.3s all;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(120%);
+    }
+
+    &--companies {
+      width: fit-content;
+      transition: 0.3s all;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(120%);
+      }
+    }
   }
 
   &__text {

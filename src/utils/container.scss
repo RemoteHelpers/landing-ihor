@@ -16,7 +16,16 @@
 
   &__FirstQuizPage,
   &__SecondQuizPage,
-  &__FirstQuizPageAnswer {
+  &__FirstQuizPageAnswer,
+  &__SecondQuizPageAnswer,
+  &__ThirdQuizPage,
+  &__ThirdQuizPageAnswer,
+  &__FourthQuizPage,
+  &__Form,
+  &__Rejected,
+  &__Approved,
+  &__AdditionalDiscount,
+  &__ApproveTestimonials {
     padding: 0 20px;
 
     @include onDesktop {

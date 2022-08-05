@@ -1,7 +1,7 @@
 @import '../../utils/mixins.scss';
 @import '../../utils/colors.scss';
 
-.SecondQuizPage {
+.Rejected {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -11,7 +11,8 @@
   text-align: center;
   padding: 30px 0 0;
 
-  background-image: radial-gradient(50% 50% at 80% 30%, $pink-gradient 0%, $black-gradient 100%);
+  background-image: url("../../images/quiz-ill.svg");
+  background-size: cover;
 
   @include onDesktop {
     background-image: radial-gradient(50% 50% at 70% 30%, rgba(255, 9, 9, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
@@ -85,14 +86,26 @@
       }
     }
 
-    &--blue {
-      border-bottom: 2px solid $blue-radiobutton;
+    &--yellow {
+      border-bottom: 2px solid $fourth-question;
       transition: 0.3s all;
 
       &:hover {
-        background-color: $blue-radiobutton;
+        background-color: $fourth-question;
         border-radius: 3px;
-        color: $white;
+      
+        cursor: pointer;
+      }
+    }
+
+    &--white {
+      border-bottom: 2px solid $white;
+      transition: 0.3s all;
+
+      &:hover {
+        background-color: $white;
+        border-radius: 3px;
+      
         cursor: pointer;
       }
     }
@@ -111,9 +124,37 @@
     }
   }
 
+  &__paragraph {
+    text-align: left;
+
+    font-size: 16px;
+    line-height: 130%;
+    padding: 6% 0;
+
+    @include onDesktop {
+      padding: 0;
+      margin: 4% 0;
+      line-height: 150%;
+      width: 85%;
+    }
+
+    @include on1440 {
+      font-size: 20px;
+    }
+
+    @include on1920 {
+      font-size: 24px;
+    }
+
+    &--bold {
+      font-weight: 700;
+    }
+  }
+
   &__buttons {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     gap: 8%;
     padding-top: 5%;
 
@@ -122,6 +163,8 @@
     line-height: 170.9%;
 
     @include onDesktop {
+      flex-direction: row;
+      padding-top: 3%;
       font-size: 17px;
       justify-content: left;
     }
@@ -138,37 +181,51 @@
   &__button {
     position: relative;
     z-index: 2;
-    width: 144px;
-    height: 86px;
+    width: 149px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 4%;
+
+    color: $white;
 
     transition: 0.3s all;
 
+    @include onDesktop {
+      margin-bottom: 0;
+      width: 170px;
+      height: 69px;
+    }
+
     @include on1440 {
-      width: 217px;
-      height: 129px;
+      width: 226px;
+      height: 92px;
     }
 
     @include on1920 {
-      width: 326px;
-      height: 194px;
+      width: 339px;
+      height: 137px;
     }
 
     &:hover {
       transform: scale(110%);
     }
 
-    &--true {
-      background-image: url('../../images/SecondQuizPage/true.svg');
+    &--blue {
+      background-image: url('../../images/Rejected/blue.svg');
       background-size: cover;
     }
 
-    &--false {
-      background-image: url('../../images/SecondQuizPage/false.svg');
+    &--yellow {
+      background-image: url('../../images/Rejected/yellow.svg');
       background-size: cover;
     }
+  }
+
+  &__footer {
+    height: 33px;
+    background-color: $white;
   }
 
   &__arrow {

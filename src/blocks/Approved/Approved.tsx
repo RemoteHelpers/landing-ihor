@@ -15,13 +15,11 @@ import '../../utils/header.scss';
 import '../../utils/footer.scss';
 import '../../utils/star.scss';
 import '../../utils/notification.scss';
-import '../../utils/numberOfItem.scss';
 import '../../utils/container.scss';
-import './SecondQuizPage.scss';
+import './Approved.scss';
 
-export const SecondQuizPage: React.FC = () => {
+export const Approved: React.FC = () => {
   const [timer, setTimer] = useState<number>(15);
-  const [isNotification, setIsNotification] = useState<boolean>(false);
 
   useEffect(() => {
     if (timer > 0) {
@@ -32,17 +30,13 @@ export const SecondQuizPage: React.FC = () => {
       return () => clearInterval(interval);
     }
 
-    if (timer === 0) {
-      setIsNotification(true);
-    }
-
     return undefined;
   }, [timer]);
 
   return (
-    <div className="SecondQuizPage">
-      <div className="SecondQuizPage__content-wrapper">
-        <div className="container container__SecondQuizPage">
+    <div className="Approved">
+      <div className="Approved__content-wrapper">
+        <div className="container container__Approved">
           <header className="header">
             <img
               src={Logo}
@@ -54,57 +48,68 @@ export const SecondQuizPage: React.FC = () => {
             </p>
           </header>
 
-          <main className="SecondQuizPage__main">
-            <h3 className="SecondQuizPage__title SecondQuizPage__title--desktop">
-              Our candidates work
+          <main className="Approved__main">
+            <h3 className="Approved__title Approved__title--desktop">
+              Thanks for choosing our company.
               {' '}
-              <span className="SecondQuizPage__title--blue">
-                8 and 4 hours
+              <span className="Approved__title--high">
+                Your discount is 15$
               </span>
               {' '}
-              a day
+              , and we&apos;ll definitely consider it when paying
+              for our employee&apos;s first month of work.
             </h3>
 
-            <h3 className="SecondQuizPage__title SecondQuizPage__title--mobile">
-              Our candidates work
+            <h3 className="Approved__title Approved__title--mobile">
+              Thanks for choosing our company.
               {' '}
-              <span className="SecondQuizPage__title--blue">
-                8 and 4 hours
+              <span className="Approved__title--high">
+                Your discount is 15$
               </span>
               {' '}
-              a day
+              , and we&apos;ll definitely consider it when paying
+              for our employee&apos;s first month of work.
             </h3>
 
-            <div className="SecondQuizPage__buttons">
+            <div className="Approved__paragraph">
+              In the meantime, our employee hasn’t called you back yet. You can read
+              {' '}
+              <span className="Approved__paragraph--bold">
+                our testimonials
+              </span>
+              {' '}
+              or
+              {' '}
+              <span className="Approved__paragraph--bold">
+                share
+              </span>
+              {' '}
+              this link with your friends, which we would appreciate!
+            </div>
+
+            <div className="Approved__buttons">
               <Link
                 to="/correctSecondAnswer"
-                className="SecondQuizPage__navigate"
+                className="Approved__navigate"
               >
-                <div className="SecondQuizPage__button SecondQuizPage__button--true">True</div>
+                <div className="Approved__button Approved__button--blue">Testimonials</div>
               </Link>
 
               <Link
                 to="/incorrectSecondAnswer"
-                className="SecondQuizPage__navigate"
+                className="Approved__navigate"
               >
-                <div className="SecondQuizPage__button SecondQuizPage__button--false">False</div>
+                <div className="Approved__button Approved__button--yellow">Share</div>
               </Link>
             </div>
 
             <img
               src={Illustration}
               alt="illustration"
-              className="SecondQuizPage__illustration"
+              className="Approved__illustration"
             />
 
-            <div className="numberOfItem">
-              <span className="numberOfItem--active">
-                2
-              </span>
-              /4
-            </div>
-
-            <div className="buttons SecondQuizPage__arrow">
+            <div className="buttons Approved__arrow">
               <Link
                 className="buttons__previous"
                 to="/firstQuestion"
@@ -113,7 +118,7 @@ export const SecondQuizPage: React.FC = () => {
                 Previous
               </Link>
             </div>
-            <div className="buttons SecondQuizPage__arrow--mobile">
+            <div className="buttons Approved__arrow--mobile">
               <Link
                 className="buttons__previous"
                 to="/firstQuestion"
@@ -186,7 +191,7 @@ export const SecondQuizPage: React.FC = () => {
         </footer>
       </div>
 
-      <div className="SecondQuizPage__info">
+      <div className="Approved__info">
         <header className="header--desktop">
           <img
             src={Logo}
@@ -199,25 +204,7 @@ export const SecondQuizPage: React.FC = () => {
             in Digital Marketing
           </p>
         </header>
-
-        <footer>
-          <button type="button" className="footer__text">
-            I&apos;m curious, want to get a consultation
-          </button>
-        </footer>
       </div>
-
-      {!isNotification && (
-        <div className="star">
-          <span className="star__text">{timer}</span>
-        </div>
-      )}
-
-      {isNotification && (
-        <div className="notification">
-          Please click on your answer
-        </div>
-      )}
     </div>
   );
 };

@@ -1,0 +1,185 @@
+@import '../../utils/mixins.scss';
+@import '../../utils/colors.scss';
+
+.ApproveTestimonials {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+
+  @include onDesktop {
+    background-image: radial-gradient(50% 50% at 70% 30%, rgba(255, 9, 9, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
+  }
+
+  &__main {
+    text-align: left;
+
+    &--mobile {
+      text-align: left;
+      height: 100%;
+      padding: 5% 6%;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__testimonials {
+    position: relative;
+    width: 100%;
+    height: 250px;
+
+    @include on1440 {
+      height: 334px;
+    }
+
+    @include on1920 {
+      height: 500px;
+    }
+  }
+
+  &__testimonial1 {
+    position: absolute;
+    top: 10%;
+    width: 195px;
+    height: 172px;
+
+    @include on1440 {
+      width: 259px;
+      height: 230px;
+    }
+
+    @include on1920 {
+      width: 388.5px;
+      height: 344px;
+    }
+  }
+
+  &__testimonial2 {
+    position: absolute;
+    right: 0;
+
+    width: 261px;
+    height: 120px;
+
+    @include on1440 {
+      width: 349px;
+      height: 160px;
+    }
+
+    @include on1920 {
+      width: 523px;
+      height: 239px;
+    }
+  }
+
+  &__testimonial3 {
+    position: absolute;
+    bottom: 0;
+    right: 20%;
+
+    width: 218px;
+    height: 118px;
+
+    @include on1440 {
+      width: 291px;
+      height: 158px;
+    }
+
+    @include on1920 {
+      width: 436px;
+      height: 236px;
+    }
+  }
+
+  &__info {
+    width: 100%;
+    display: flex;
+    padding: 4.5% 0 0;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    @include onDesktop {
+      background-image: url("../../images/quiz-ill.svg");
+      padding: 40px 35px 35px;
+      width: 40%;
+    }
+
+    @include on1440 {
+      padding: 60px 53px 53px;
+    }
+
+    @include on1920 {
+      padding: 80px 70px 70px;
+    }
+
+    &--content-wrapper {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__content-wrapper {
+    display: none;
+  
+    @include onDesktop {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      width: 60%;
+    }
+  }
+
+  &__title {
+    margin: 0 0 10%;
+    padding: 5% 0;
+
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 130%;
+
+    color: #1a1a1c;
+
+    &--high {
+      border-bottom: 2px solid $purple;
+      transition: 0.3s all;
+      color: $red-underline;
+
+      &:hover {
+        background-color: $purple;
+        border-radius: 3px;
+      
+        cursor: pointer;
+      }
+    }
+
+    @include onTablet {
+      padding: 2% 0;
+    }
+
+    @include onDesktop {
+      padding: 0;
+      font-size: 24px;
+      text-align: left;
+    }
+
+    @include on1440 {
+      font-size: 36px;
+    }
+
+    @include on1920 {
+      font-size: 48px;
+    }
+  
+    &--mobile {
+      text-align: center;
+      margin: 0 0 4%;
+    }
+  }
+}

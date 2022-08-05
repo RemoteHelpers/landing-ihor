@@ -1,7 +1,7 @@
 @import '../../utils/mixins.scss';
 @import '../../utils/colors.scss';
 
-.SecondQuizPage {
+.FourthQuizPage {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -85,14 +85,14 @@
       }
     }
 
-    &--blue {
-      border-bottom: 2px solid $blue-radiobutton;
+    &--yellow {
+      border-bottom: 2px solid $fourth-question;
       transition: 0.3s all;
 
       &:hover {
-        background-color: $blue-radiobutton;
+        background-color: $fourth-question;
         border-radius: 3px;
-        color: $white;
+      
         cursor: pointer;
       }
     }

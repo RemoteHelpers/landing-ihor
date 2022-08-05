@@ -19,6 +19,8 @@ import '../../utils/container.scss';
 export const FirstQuizPage: React.FC = () => {
   const [timer, setTimer] = useState<number>(15);
   const [isNotification, setIsNotification] = useState<boolean>(false);
+  // const [answer, setAnswer] = useState<string>('');
+  // const [isRightAnswer, setIsRightAnswer] = useState<boolean | null>(null);
 
   useEffect(() => {
     if (timer > 0) {

@@ -1,7 +1,7 @@
 @import '../../utils/mixins.scss';
 @import '../../utils/colors.scss';
 
-.SecondQuizPage {
+.Form {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -11,12 +11,22 @@
   text-align: center;
   padding: 30px 0 0;
 
-  background-image: radial-gradient(50% 50% at 80% 30%, $pink-gradient 0%, $black-gradient 100%);
+  background-image: url("../../images/quiz-ill.svg");
+  background-size: cover;
 
   @include onDesktop {
     background-image: radial-gradient(50% 50% at 70% 30%, rgba(255, 9, 9, 0.11) 0%, rgba(255, 255, 255, 0.033) 100%);
     width: 100%;
     padding: 0;
+  }
+
+  &__footer {
+    background-color: $white;
+    height: 33px;
+
+    @include onDesktop {
+      height: 42px;
+    }
   }
 
   &__info {
@@ -42,6 +52,7 @@
   }
 
   &__content-wrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -82,17 +93,30 @@
 
       @include onDesktop {
         display: block;
+        margin-bottom: 6%;
       }
     }
 
-    &--blue {
-      border-bottom: 2px solid $blue-radiobutton;
+    &--yellow {
+      border-bottom: 2px solid $fourth-question;
       transition: 0.3s all;
 
       &:hover {
-        background-color: $blue-radiobutton;
+        background-color: $fourth-question;
         border-radius: 3px;
-        color: $white;
+      
+        cursor: pointer;
+      }
+    }
+
+    &--white {
+      border-bottom: 2px solid $white;
+      transition: 0.3s all;
+
+      &:hover {
+        background-color: $white;
+        border-radius: 3px;
+      
         cursor: pointer;
       }
     }
@@ -111,63 +135,141 @@
     }
   }
 
-  &__buttons {
-    display: flex;
-    justify-content: center;
-    gap: 8%;
-    padding-top: 5%;
-
-    font-weight: 700;
+  &__paragraph {
     font-size: 16px;
-    line-height: 170.9%;
+    line-height: 130%;
+    text-align: left;
 
     @include onDesktop {
-      font-size: 17px;
-      justify-content: left;
+      font-size: 12px;
+      line-height: 150%;
+      width: 80%;
+      margin-bottom: 5%;
     }
 
     @include on1440 {
-      font-size: 22px;
+      font-size: 18px;
     }
 
     @include on1920 {
-      font-size: 33px;
+      font-size: 24px;
     }
   }
 
-  &__button {
+  &__form {
     position: relative;
     z-index: 2;
-    width: 144px;
-    height: 86px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
+    width: fit-content;
+
+    @include onDesktop {
+      margin: 0 auto;
+    }
+  }
+
+  &__input {
+    display: block;
+    margin-bottom: 12px;
+    border: 1px solid $blue-number;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 4px;
+    font-family: 'Montserrat Alternates', sans-serif;
     transition: 0.3s all;
 
+    height: 25px;
+    width: 200px;
+
+    &:hover {
+      cursor: pointer;
+      border-color: $yellow-underline;
+    }
+
+    @include onTablet {
+      width: 400px;
+    }
+
+    @include onDesktop {
+      margin: 0 auto;
+      margin-bottom: 15px;
+      height: 25px;
+      width: 240px;
+      font-size: 12px;
+      padding-left: 6px;
+    }
+
     @include on1440 {
-      width: 217px;
-      height: 129px;
+      height: 33px;
+      width: 360px;
+      font-size: 14px;
+      padding-left: 9px;
     }
 
     @include on1920 {
-      width: 326px;
-      height: 194px;
+      height: 40px;
+      width: 480px;
+      padding-left: 12px;
+      font-size: 16px;
     }
+
+    &::placeholder {
+      font-size: 12px;
+      line-height: 170.9%;
+
+      color: $placeholder;
+
+      @include onDesktop {
+        font-size: 12px;
+        padding: 6px;
+      }
+
+      @include on1440 {
+        font-size: 14px;
+        padding: 9px;
+      }
+
+      @include on1920 {
+        padding: 12px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__form-button {
+    display: block;
+    margin: 25px auto 0;
+
+    background: $red-underline;
+    border-radius: 10px;
+    border: none;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 170.9%;
+
+    width: 100%;
+    height: 35px;
+
+    color: $white;
+    transition: 0.3s all;
 
     &:hover {
-      transform: scale(110%);
+      cursor: pointer;
+      transform: scale(105%);
     }
 
-    &--true {
-      background-image: url('../../images/SecondQuizPage/true.svg');
-      background-size: cover;
+    @include on1440 {
+      width: 70%;
     }
 
-    &--false {
-      background-image: url('../../images/SecondQuizPage/false.svg');
-      background-size: cover;
+    @include on1440 {
+      height: 40px;
+      margin: 36px auto 0;
+    }
+
+    @include on1920 {
+      height: 45px;
+      margin: 47px auto 0;
     }
   }
 

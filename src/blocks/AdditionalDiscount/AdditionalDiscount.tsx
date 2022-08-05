@@ -17,11 +17,10 @@ import '../../utils/star.scss';
 import '../../utils/notification.scss';
 import '../../utils/numberOfItem.scss';
 import '../../utils/container.scss';
-import './SecondQuizPage.scss';
+import './AdditionalDiscount.scss';
 
-export const SecondQuizPage: React.FC = () => {
+export const AdditionalDiscount: React.FC = () => {
   const [timer, setTimer] = useState<number>(15);
-  const [isNotification, setIsNotification] = useState<boolean>(false);
 
   useEffect(() => {
     if (timer > 0) {
@@ -32,17 +31,13 @@ export const SecondQuizPage: React.FC = () => {
       return () => clearInterval(interval);
     }
 
-    if (timer === 0) {
-      setIsNotification(true);
-    }
-
     return undefined;
   }, [timer]);
 
   return (
-    <div className="SecondQuizPage">
-      <div className="SecondQuizPage__content-wrapper">
-        <div className="container container__SecondQuizPage">
+    <div className="AdditionalDiscount">
+      <div className="AdditionalDiscount__content-wrapper">
+        <div className="container container__AdditionalDiscount">
           <header className="header">
             <img
               src={Logo}
@@ -54,57 +49,73 @@ export const SecondQuizPage: React.FC = () => {
             </p>
           </header>
 
-          <main className="SecondQuizPage__main">
-            <h3 className="SecondQuizPage__title SecondQuizPage__title--desktop">
-              Our candidates work
+          <main className="AdditionalDiscount__main">
+            <h3 className="AdditionalDiscount__title AdditionalDiscount__title--desktop">
+              We give you a
               {' '}
-              <span className="SecondQuizPage__title--blue">
-                8 and 4 hours
+              <span className="AdditionalDiscount__title--high">
+                5% discount
               </span>
               {' '}
-              a day
+              for choosing our company.
             </h3>
 
-            <h3 className="SecondQuizPage__title SecondQuizPage__title--mobile">
-              Our candidates work
+            <h3 className="AdditionalDiscount__title AdditionalDiscount__title--mobile">
+              We give you a
               {' '}
-              <span className="SecondQuizPage__title--blue">
-                8 and 4 hours
+              <span className="AdditionalDiscount__title--high">
+                5% discount
               </span>
               {' '}
-              a day
+              for choosing our company.
             </h3>
 
-            <div className="SecondQuizPage__buttons">
+            <div className="AdditionalDiscount__paragraph">
+              In the meantime, our employee hasn’t called you back yet. You can read
+              {' '}
+              <span className="AdditionalDiscount__paragraph--bold">
+                our testimonials
+              </span>
+              {' '}
+              or
+              {' '}
+              <span className="AdditionalDiscount__paragraph--bold">
+                share
+              </span>
+              {' '}
+              this link with your friends, which we would appreciate!
+            </div>
+
+            <div className="AdditionalDiscount__buttons">
               <Link
                 to="/correctSecondAnswer"
-                className="SecondQuizPage__navigate"
+                className="AdditionalDiscount__navigate"
               >
-                <div className="SecondQuizPage__button SecondQuizPage__button--true">True</div>
+                <div className="AdditionalDiscount__button AdditionalDiscount__button--blue">Testimonials</div>
               </Link>
 
               <Link
                 to="/incorrectSecondAnswer"
-                className="SecondQuizPage__navigate"
+                className="AdditionalDiscount__navigate"
               >
-                <div className="SecondQuizPage__button SecondQuizPage__button--false">False</div>
+                <div className="AdditionalDiscount__button AdditionalDiscount__button--yellow">Share</div>
               </Link>
             </div>
 
             <img
               src={Illustration}
               alt="illustration"
-              className="SecondQuizPage__illustration"
+              className="AdditionalDiscount__illustration"
             />
 
             <div className="numberOfItem">
               <span className="numberOfItem--active">
-                2
+                4
               </span>
               /4
             </div>
 
-            <div className="buttons SecondQuizPage__arrow">
+            <div className="buttons AdditionalDiscount__arrow">
               <Link
                 className="buttons__previous"
                 to="/firstQuestion"
@@ -113,7 +124,7 @@ export const SecondQuizPage: React.FC = () => {
                 Previous
               </Link>
             </div>
-            <div className="buttons SecondQuizPage__arrow--mobile">
+            <div className="buttons AdditionalDiscount__arrow--mobile">
               <Link
                 className="buttons__previous"
                 to="/firstQuestion"
@@ -186,7 +197,7 @@ export const SecondQuizPage: React.FC = () => {
         </footer>
       </div>
 
-      <div className="SecondQuizPage__info">
+      <div className="AdditionalDiscount__info">
         <header className="header--desktop">
           <img
             src={Logo}
@@ -199,25 +210,7 @@ export const SecondQuizPage: React.FC = () => {
             in Digital Marketing
           </p>
         </header>
-
-        <footer>
-          <button type="button" className="footer__text">
-            I&apos;m curious, want to get a consultation
-          </button>
-        </footer>
       </div>
-
-      {!isNotification && (
-        <div className="star">
-          <span className="star__text">{timer}</span>
-        </div>
-      )}
-
-      {isNotification && (
-        <div className="notification">
-          Please click on your answer
-        </div>
-      )}
     </div>
   );
 };
