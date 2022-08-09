@@ -122,9 +122,6 @@
   }
 
   &__button {
-    margin: 0 auto 15px;
-    display: block;
-
     font-weight: 700;
     font-size: 16px;
     line-height: 170.9%;
@@ -165,8 +162,10 @@
   &__illustration {
     z-index: 1;
     position: absolute;
-    left: -6%;
-    bottom: 30px;
+    left: 2%;
+    bottom: 7%;
+    width: 108px;
+    height: 159px;
 
     animation-name: move;
     animation-duration: 1s;
@@ -176,26 +175,25 @@
 
     @include onTablet {
       animation-name: move;
-      width: 263px;
-      left: -3%;
-      height: 197px;
+      left: 5%;
+      bottom: 5%;
     }
 
     @include onDesktop {
       animation-name: moveOnDesktop;
-      width: 394px;
-      height: 295px;
+      width: 173px;
+      height: 254px;
     }
 
     @include on1440 {
-      width: 525px;
-      height: 391px;
+      width: 231px;
+      height: 329px;
     }
 
     @include on1920 {
       left: -5%;
-      width: 788.02px;
-      height: 591.02px;
+      width: 346px;
+      height: 508px;
     }
   }
 
@@ -226,20 +224,20 @@
 
 @keyframes move {
   from {
-    bottom: 30px;
+    bottom: 7%;
   }
 
   to {
-    bottom: 60px;
+    bottom: 9%;
   }
 }
 
 @keyframes moveOnDesktop {
   from {
-    bottom: 30px;
+    bottom: 5%;
   }
 
   to {
-    bottom: 100px;
+    bottom: 10%;
   }
 }

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { addAnswer3 } from '../../toolkitRedux/toolkitReducer';
 
-import Illustration from '../../images/question1-ill.svg';
+import Illustration from '../../images/question1-ill.png';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
 import Viber from '../../images/social/viber.svg';
@@ -10,6 +13,8 @@ import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
 import Previous from '../../images/buttons/previous.svg';
 import PreviousBold from '../../images/buttons/previousBold.svg';
+import Next from '../../images/buttons/next.svg';
+import NextBold from '../../images/buttons/nextBold.svg';
 import '../Buttons/Buttons.scss';
 import '../../utils/header.scss';
 import '../../utils/footer.scss';
@@ -20,9 +25,11 @@ import '../../utils/container.scss';
 import './ThirdQuizPage.scss';
 
 export const ThirdQuizPage: React.FC = () => {
-  const [timer, setTimer] = useState<number>(15);
+  const [timer, setTimer] = useState<number>(2);
+  const [answer, setAnswer] = useState<string>('Move here');
   const [isNotification, setIsNotification] = useState<boolean>(false);
-  // const [selectedValue, setSelectedValue] = useState<number | null>(null);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (timer > 0) {
@@ -37,12 +44,21 @@ export const ThirdQuizPage: React.FC = () => {
       setIsNotification(true);
     }
 
-    return undefined;
-  }, [timer]);
+    if (answer !== 'Move here') {
+      setIsNotification(false);
+    }
 
-  // const handleOnChange = (e) => {
-  //   setSelectedValue(e.target.value);
-  // };
+    return undefined;
+  }, [timer, answer]);
+
+  const handleOnChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    setAnswer(e.target.value);
+  };
+
+  const star = classNames('star', {
+    'star--true': answer === '100',
+    'star--false': answer !== '100' && answer !== 'Move here',
+  });
 
   return (
     <div className="ThirdQuizPage">
@@ -81,15 +97,24 @@ export const ThirdQuizPage: React.FC = () => {
             </h3>
 
             <div className="ThirdQuizPage__slider">
+              {answer === 'Move here' && (
+                <h2 className="ThirdQuizPage__slider--hint">{`${answer}`}</h2>
+              )}
+              {answer !== 'Move here' && (
+                <h2 className="ThirdQuizPage__slider--value">{`${answer}%`}</h2>
+              )}
               <input
                 type="range"
                 className="ThirdQuizPage__fader"
-                // onChange={handleOnChange}
+                onChange={handleOnChange}
               />
-              {/* {selectedValue && (
-                <h1>selectedValue</h1>
-              )} */}
             </div>
+
+            {(isNotification && answer === 'Move here') && (
+              <p className="notification">
+                Please, choose your answer
+              </p>
+            )}
 
             <img
               src={Illustration}
@@ -104,23 +129,50 @@ export const ThirdQuizPage: React.FC = () => {
               /4
             </div>
 
-            <div className="buttons ThirdQuizPage__arrow">
-              <Link
-                className="buttons__previous"
-                to="/firstQuestion"
-              >
-                <img className="buttons--desktop" src={PreviousBold} alt="arrow left" />
-                Previous
-              </Link>
-            </div>
-            <div className="buttons ThirdQuizPage__arrow--mobile">
-              <Link
-                className="buttons__previous"
-                to="/firstQuestion"
-              >
-                <img className="buttons--mobile" src={Previous} alt="arrow left" />
-                Previous
-              </Link>
+            <div className="SecondQuizPage__arrows">
+              <div className="SecondQuizPage__arrow SecondQuizPage__arrow--desktop">
+                <Link
+                  className="SecondQuizPage__previous"
+                  to="/firstQuestion"
+                >
+                  <img className="SecondQuizPage__arrow--desktop" src={PreviousBold} alt="arrow left" />
+                  Previous
+                </Link>
+              </div>
+              <div className="SecondQuizPage__arrow--mobile">
+                <Link
+                  className="SecondQuizPage__previous"
+                  to="/firstQuestion"
+                >
+                  <img className="SecondQuizPage__arrow--mobile" src={Previous} alt="arrow left" />
+                  Previous
+                </Link>
+              </div>
+
+              {answer !== 'Move here' && (
+                <>
+                  <div className="SecondQuizPage__arrow SecondQuizPage__arrow--desktop">
+                    <Link
+                      className="SecondQuizPage__next"
+                      to="/thirdAnswer"
+                      onClick={() => dispatch(addAnswer3(answer))}
+                    >
+                      Next
+                      <img className="SecondQuizPage__arrow--desktop" src={NextBold} alt="arrow left" />
+                    </Link>
+                  </div>
+                  <div className="SecondQuizPage__arrow--mobile">
+                    <Link
+                      className="SecondQuizPage__next"
+                      to="/thirdAnswer"
+                      onClick={() => dispatch(addAnswer3(answer))}
+                    >
+                      Next
+                      <img className="SecondQuizPage__arrow--mobile" src={Next} alt="arrow left" />
+                    </Link>
+                  </div>
+                </>
+              )}
             </div>
           </main>
         </div>
@@ -208,14 +260,10 @@ export const ThirdQuizPage: React.FC = () => {
       </div>
 
       {!isNotification && (
-        <div className="star">
-          <span className="star__text">{timer}</span>
-        </div>
-      )}
-
-      {isNotification && (
-        <div className="notification">
-          Please click on your answer
+        <div className={star}>
+          {(answer === 'Move here') && (
+            <span className="star__text">{timer}</span>
+          )}
         </div>
       )}
     </div>

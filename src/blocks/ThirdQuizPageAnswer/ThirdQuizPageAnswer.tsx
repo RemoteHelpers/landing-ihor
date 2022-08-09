@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../toolkitRedux';
 import { Buttons, ButtonsDesktop } from '../Buttons/Buttons';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
@@ -6,7 +8,7 @@ import Viber from '../../images/social/viber.svg';
 import Skype from '../../images/social/skype.svg';
 import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
-import Ill from '../../images/FirstAnswer/ill.svg';
+import Ill from '../../images/ThirdQuizPageAswer/third-ill.png';
 import RedPoint from '../../images/ThirdQuizPageAswer/red-point.svg';
 import GreenPoint from '../../images/ThirdQuizPageAswer/green-point.svg';
 import './ThirdQuizPageAnswer.scss';
@@ -15,11 +17,9 @@ import '../../utils/footer.scss';
 import '../../utils/numberOfItem.scss';
 import '../../utils/container.scss';
 
-type Props = {
-  answer: boolean,
-};
+export const ThirdQuizPageAnswer: React.FC = () => {
+  const isTrueAnswer = useSelector((state: RootState) => state.toolkit.thirdQuestion.isTrue);
 
-export const ThirdQuizPageAnswer: React.FC<Props> = ({ answer }) => {
   return (
     <div className="ThirdQuizPageAnswer">
       <div className="ThirdQuizPageAnswer__content-wrapper">
@@ -252,12 +252,12 @@ export const ThirdQuizPageAnswer: React.FC<Props> = ({ answer }) => {
 
       <img src={Ill} alt="illustration" className="ThirdQuizPageAnswer__illustration--mobile" />
 
-      {answer && (
-        <div className="star star--true"></div>
+      {isTrueAnswer && (
+        <div className="star star--true ThirdQuizPageAnswer__star"></div>
       )}
 
-      {!answer && (
-        <div className="star star--false"></div>
+      {!isTrueAnswer && (
+        <div className="star star--false ThirdQuizPageAnswer__star"></div>
       )}
     </div>
   );

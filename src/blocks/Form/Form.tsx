@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Illustration from '../../images/question1-ill.svg';
+import Illustration from '../../images/Form/ill.png';
 import Logo from '../../images/Logo.svg';
 import FirstCompany from '../../images/FourthQuizPage/1.png';
 import SecondCompany from '../../images/FourthQuizPage/2.png';
@@ -21,19 +21,53 @@ import '../../utils/container.scss';
 import './Form.scss';
 
 export const Form: React.FC = () => {
-  const [timer, setTimer] = useState<number>(15);
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+  const [nameDirty, setNameDirty] = useState(false);
+  const [numberDirty, setNumberDirty] = useState(false);
+  const [nameError, setNameError] = useState('Name can not be empty');
+  const [numberError, setNumberError] = useState('Number can not be empty');
 
-  useEffect(() => {
-    if (timer > 0) {
-      const interval = setInterval(() => {
-        setTimer(timer - 1);
-      }, 1000);
+  const blurHandler = (e: React.FocusEvent<HTMLElement>) => {
+    switch ((e.target as HTMLInputElement).name) {
+      case 'name':
+        setNameDirty(true);
+        break;
+      case 'number':
+        setNumberDirty(true);
+        break;
 
-      return () => clearInterval(interval);
+      default:
+        setNameDirty(false);
+        setNumberDirty(false);
     }
+  };
 
-    return undefined;
-  }, [timer]);
+  const nameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+    const re = /^[a-zA-Z ]+$/;
+
+    if (!re.test(String(e.target.value))) {
+      setNameError('This name should contain English letters');
+    } else {
+      setNameError('');
+    }
+  };
+
+  const numberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNumber(e.target.value);
+    const re = /^\d+$/;
+
+    if (!re.test(String(e.target.value))) {
+      setNumberError('This number is invalid');
+
+      if (!e.target.value) {
+        setNumberError('This number is invalid');
+      } else {
+        setNumberError('Number can not be empty');
+      }
+    }
+  };
 
   return (
     <div className="Form">
@@ -73,13 +107,27 @@ export const Form: React.FC = () => {
             </p>
 
             <form action="post" className="Form__form">
+              {(nameDirty && nameError) && (
+                <div className="Form__error">{nameError}</div>
+              )}
               <input
+                name="name"
+                onChange={(e) => nameHandler(e)}
+                value={name}
+                onBlur={(e) => blurHandler(e)}
                 type="text"
                 placeholder="Name"
                 className="Form__input"
               />
+              {(numberDirty && numberError) && (
+                <div className="Form__error">{numberError}</div>
+              )}
               <input
-                type="text"
+                name="number"
+                onChange={(e) => numberHandler(e)}
+                value={number}
+                onBlur={(e) => blurHandler(e)}
+                type="number"
                 placeholder="Phone"
                 className="Form__input"
               />
@@ -90,12 +138,6 @@ export const Form: React.FC = () => {
                 value="Get a consultation now"
               />
             </form>
-
-            <img
-              src={Illustration}
-              alt="illustration"
-              className="Form__illustration"
-            />
 
             <div className="numberOfItem">
               <span className="numberOfItem--active">
@@ -163,6 +205,12 @@ export const Form: React.FC = () => {
           </p>
         </header>
       </div>
+
+      <img
+        src={Illustration}
+        alt="illustration"
+        className="Form__illustration--mobile"
+      />
     </div>
   );
 };

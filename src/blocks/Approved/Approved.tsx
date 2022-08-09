@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../toolkitRedux';
 
-import Illustration from '../../images/question1-ill.svg';
+import Illustration from '../../images/Rejected/ill.png';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
 import Viber from '../../images/social/viber.svg';
@@ -20,6 +22,12 @@ import './Approved.scss';
 
 export const Approved: React.FC = () => {
   const [timer, setTimer] = useState<number>(15);
+
+  const amountOfDiscount = useSelector((state: RootState) => {
+    return Number(state.toolkit.firstQuestion.isTrue) * 15
+    + Number(state.toolkit.secondQuestion.isTrue) * 15
+    + Number(state.toolkit.thirdQuestion.isTrue) * 15;
+  });
 
   useEffect(() => {
     if (timer > 0) {
@@ -53,7 +61,10 @@ export const Approved: React.FC = () => {
               Thanks for choosing our company.
               {' '}
               <span className="Approved__title--high">
-                Your discount is 15$
+                Your discount is
+                {' '}
+                {amountOfDiscount}
+                $
               </span>
               {' '}
               , and we&apos;ll definitely consider it when paying
@@ -64,7 +75,9 @@ export const Approved: React.FC = () => {
               Thanks for choosing our company.
               {' '}
               <span className="Approved__title--high">
-                Your discount is 15$
+                Your discount is
+                {amountOfDiscount}
+                $
               </span>
               {' '}
               , and we&apos;ll definitely consider it when paying
@@ -102,12 +115,6 @@ export const Approved: React.FC = () => {
                 <div className="Approved__button Approved__button--yellow">Share</div>
               </Link>
             </div>
-
-            <img
-              src={Illustration}
-              alt="illustration"
-              className="Approved__illustration"
-            />
 
             <div className="buttons Approved__arrow">
               <Link
@@ -205,6 +212,12 @@ export const Approved: React.FC = () => {
           </p>
         </header>
       </div>
+
+      <img
+        src={Illustration}
+        alt="illustration"
+        className="Approved__illustration--mobile"
+      />
     </div>
   );
 };

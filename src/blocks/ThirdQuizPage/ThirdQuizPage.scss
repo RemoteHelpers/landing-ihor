@@ -117,8 +117,42 @@
     margin: 0 auto;
 
     @include onDesktop {
-      margin: 0;
+      margin: 0 0 10%;
       width: 80%;
+    }
+
+    &--value {
+      font-family: 'Balsamiq Sans', cursive;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 170.9%;
+      text-align: center;
+      color: $green-number;
+
+      @include onDesktop {
+        font-size: 37px;
+      }
+
+      @include on1920 {
+        font-size: 68px;
+      }
+    }
+
+    &--hint {
+      font-family: 'Balsamiq Sans', cursive;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 170.9%;
+      text-align: center;
+      color: $green-number;
+
+      @include onDesktop {
+        font-size: 37px;
+      }
+
+      @include on1920 {
+        font-size: 50px;
+      }
     }
   }
 
@@ -139,6 +173,14 @@
     @include on1920 {
       border-radius: 4px;
       height: 10px;
+    }
+
+    &:hover {
+      cursor: grab;
+    }
+
+    &:active {
+      cursor: grabbing;
     }
 
     &::-webkit-slider-thumb {
@@ -190,34 +232,103 @@
   }
 
   &__illustration {
+    width: 111px;
+    height: 238px;
     z-index: -1;
     position: absolute;
-    bottom: 4%;
-    right: 0;
+    bottom: 7%;
+    right: 1%;
 
     @include onTablet {
       right: 50px;
     }
 
     @include onDesktop {
-      bottom: 9%;
+      width: 155px;
+      height: 333px;
       z-index: 1;
-      width: 503px;
-      height: 337px;
-      right: 22%;
+      bottom: 7%;
+      right: 35%;
     }
 
     @include on1440 {
-      bottom: 9%;
-      width: 754px;
-      height: 505px;
+      width: 206px;
+      height: 444px;
     }
 
     @include on1920 {
-      bottom: 9%;
-      right: 24%;
-      width: 1007.24px;
-      height: 755.43px;
+      width: 309px;
+      height: 665px;
+    }
+  }
+
+  &__arrows {
+    display: flex;
+    justify-content: space-between;
+
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    width: 200px;
+    z-index: 1;
+    position: absolute;
+    bottom: 8%;
+
+    @include onDesktop {
+      left: 36%;
+      right: inherit;
+      gap: 36px;
+    }
+  }
+
+  &__arrow {
+    font-size: 12px;
+    line-height: 170.9%;
+
+    @include onDesktop {
+      font-size: 18px;
+    }
+
+    @include on1920 {
+      font-size: 24px;
+    }
+
+    &--mobile {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+      @include onDesktop {
+        display: inline;
+      }
+    }
+  }
+
+  &__previous {
+    display: flex;
+    gap: 5px;
+    transition: 0.3s all;
+    
+    &:hover {
+      transform: scale(105%);
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__next {
+    display: flex;
+    gap: 5px;
+    transition: 0.3s all;
+
+    &:hover {
+      transform: scale(105%);
     }
   }
 }

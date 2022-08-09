@@ -1,18 +1,20 @@
 @import '../utils/mixins.scss';
 
 .notification {
-  display: flex;
-  border-radius: 7px;
-  font-weight: 700;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 12%;
-  right: 3%;
+  position: relative;
+  z-index: 2;
+  // display: flex;
+  // border-radius: 7px;
+  // font-weight: 700;
+  // justify-content: center;
+  // align-items: center;
+  // position: absolute;
+  // bottom: 12%;
+  // right: 3%;
   color: white;
 
-  width: 150px;
-  height: 50px;
+  // width: 150px;
+  // height: 50px;
 
   background-color: #ff5252;
 
@@ -22,13 +24,13 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
 
-  @include onDesktop {
-    top: 43%;
-    right: 1%;
+  // @include onDesktop {
+  //   top: 43%;
+  //   right: 1%;
 
-    width: 300px;
-    height: 100px;
-  }
+  //   width: 300px;
+  //   height: 100px;
+  // }
 }
 
 @keyframes blink {

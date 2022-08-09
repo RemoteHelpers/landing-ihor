@@ -32,6 +32,10 @@
     font-size: 12px;
     line-height: 150%;
 
+    @include onDesktop {
+      width: 90%;
+    }
+
     @include on1440 {
       font-size: 18px;
     }
@@ -73,6 +77,7 @@
   }
 
   &__point {
+    width: 95%;
     display: flex;
     align-items: flex-start;
 
@@ -220,29 +225,41 @@
 
   &__illustration {
     &--mobile {
+      width: 101px;
+      height: 260px;
       position: absolute;
-      right: 0%;
-      bottom: 10%;
+      bottom: 7%;
+      right: 1%;
 
-      @media (max-width: 360px) {
-        right: -12%;
+      @include onTablet {
+        right: 50px;
       }
 
       @include onDesktop {
-        right: 35%;
+        width: 131px;
+        height: 337px;
+        z-index: 1;
+        bottom: 7%;
+        right: 32%;
       }
 
       @include on1440 {
-        bottom: 2%;
-        width: 480px;
-        right: 33%;
+        width: 175px;
+        height: 450px;
       }
 
       @include on1920 {
-        bottom: 2%;
-        width: 720px;
-        right: 33%;
+        width: 262px;
+        height: 674px;
       }
+    }
+  }
+
+  &__star {
+    display: none;
+
+    @include onDesktop {
+      display: block;
     }
   }
 }

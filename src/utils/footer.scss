@@ -31,15 +31,19 @@
   }
 
   &__social-item {
+    @include on1440 {
+      font-size: 14px;
+    }
+
     &--desktop {
       display: none;
       font-weight: 400;
-      font-size: 11px;
+      font-size: 10px;
       line-height: 160%;
 
       @include onDesktop {
         display: inline;
-        font-size: 11px;
+        font-size: 10px;
       }
   
       @include on1440 {

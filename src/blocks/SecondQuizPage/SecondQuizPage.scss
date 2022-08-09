@@ -117,109 +117,173 @@
     gap: 8%;
     padding-top: 5%;
 
+    @include onDesktop {
+      justify-content: left;
+    }
+  }
+
+  &__button {
+    font-family: 'Montserrat Alternates', sans-serif;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+    width: 144px;
+    height: 86px;
     font-weight: 700;
     font-size: 16px;
-    line-height: 170.9%;
+
+    transition: 0.3s all;
 
     @include onDesktop {
+      width: 163px;
+      height: 97px;
       font-size: 17px;
       justify-content: left;
     }
 
     @include on1440 {
+      width: 220px;
+      height: 131px;
       font-size: 22px;
-    }
-
-    @include on1920 {
-      font-size: 33px;
-    }
-  }
-
-  &__button {
-    position: relative;
-    z-index: 2;
-    width: 144px;
-    height: 86px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: 0.3s all;
-
-    @include on1440 {
-      width: 217px;
-      height: 129px;
     }
 
     @include on1920 {
       width: 326px;
       height: 194px;
+      font-size: 33px;
     }
 
     &:hover {
+      cursor: pointer;
       transform: scale(110%);
     }
 
     &--true {
       background-image: url('../../images/SecondQuizPage/true.svg');
       background-size: cover;
+
+      &:focus {
+        transform: scale(115%);
+      }
     }
 
     &--false {
       background-image: url('../../images/SecondQuizPage/false.svg');
       background-size: cover;
-    }
-  }
 
-  &__arrow {
-    display: none;
-    position: absolute;
-  
-    @include onDesktop{
-      left: -20%;
-      display: block;
-    }
-
-    &--mobile {
-      display: flex;
-      justify-content: center;
-      left: -16%;
-
-      @include onDesktop {
-        display: none;
+      &:focus {
+        transform: scale(115%);
       }
     }
   }
 
+  &__arrows {
+    display: flex;
+    justify-content: space-between;
+
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    width: 200px;
+    z-index: 1;
+    position: absolute;
+    bottom: 8%;
+
+    @include onDesktop {
+      left: 36%;
+      right: inherit;
+      gap: 36px;
+    }
+  }
+
+  &__arrow {
+    font-size: 12px;
+    line-height: 170.9%;
+
+    @include onDesktop {
+      font-size: 18px;
+    }
+
+    @include on1920 {
+      font-size: 24px;
+    }
+
+    &--mobile {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+      @include onDesktop {
+        display: inline;
+      }
+    }
+  }
+
+  &__previous {
+    display: flex;
+    gap: 5px;
+    transition: 0.3s all;
+    
+    &:hover {
+      transform: scale(105%);
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__next {
+    display: flex;
+    gap: 5px;
+    transition: 0.3s all;
+
+    &:hover {
+      transform: scale(105%);
+    }
+  }
+
   &__illustration {
+    width: 111px;
+    height: 238px;
     z-index: -1;
     position: absolute;
-    bottom: 4%;
-    right: 0;
+    bottom: 7%;
+    right: 1%;
 
     @include onTablet {
       right: 50px;
     }
 
     @include onDesktop {
-      bottom: 9%;
+      width: 155px;
+      height: 333px;
       z-index: 1;
-      width: 503px;
-      height: 337px;
-      right: 22%;
+      bottom: 7%;
+      right: 35%;
     }
 
     @include on1440 {
-      bottom: 9%;
-      width: 754px;
-      height: 505px;
+      width: 206px;
+      height: 444px;
     }
 
     @include on1920 {
-      bottom: 9%;
-      right: 24%;
-      width: 1007.24px;
-      height: 755.43px;
+      width: 309px;
+      height: 665px;
+    }
+  }
+
+  &__star {
+    display: none;
+
+    @include onDesktop {
+      display: block;
     }
   }
 }

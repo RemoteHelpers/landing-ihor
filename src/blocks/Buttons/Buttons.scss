@@ -1,7 +1,7 @@
 @import '../../utils/mixins.scss';
 
 .buttons {
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   bottom: 8%;
   display: flex;
@@ -18,7 +18,7 @@
   width: 200px;
 
   @include onDesktop {
-    left: 38%;
+    left: 48%;
     gap: 36px;
     font-size: 18px;
   }

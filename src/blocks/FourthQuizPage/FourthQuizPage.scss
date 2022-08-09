@@ -192,34 +192,33 @@
   }
 
   &__illustration {
+    width: 111px;
+    height: 238px;
     z-index: -1;
     position: absolute;
-    bottom: 4%;
-    right: 0;
+    bottom: 7%;
+    right: 1%;
 
     @include onTablet {
       right: 50px;
     }
 
     @include onDesktop {
-      bottom: 9%;
+      width: 155px;
+      height: 333px;
       z-index: 1;
-      width: 503px;
-      height: 337px;
-      right: 22%;
+      bottom: 7%;
+      right: 35%;
     }
 
     @include on1440 {
-      bottom: 9%;
-      width: 754px;
-      height: 505px;
+      width: 206px;
+      height: 444px;
     }
 
     @include on1920 {
-      bottom: 9%;
-      right: 24%;
-      width: 1007.24px;
-      height: 755.43px;
+      width: 309px;
+      height: 665px;
     }
   }
 }

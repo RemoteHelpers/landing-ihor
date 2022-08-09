@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import Illustration from '../../images/question1-ill.svg';
+import Illustration from '../../images/Rejected/ill.png';
 import Logo from '../../images/Logo.svg';
 import FirstCompany from '../../images/FourthQuizPage/1.png';
 import SecondCompany from '../../images/FourthQuizPage/2.png';
@@ -99,12 +99,6 @@ export const Rejected: React.FC = () => {
               </Link>
             </div>
 
-            <img
-              src={Illustration}
-              alt="illustration"
-              className="Rejected__illustration"
-            />
-
             <div className="numberOfItem">
               <span className="numberOfItem--active">
                 4
@@ -171,6 +165,12 @@ export const Rejected: React.FC = () => {
           </p>
         </header>
       </div>
+
+      <img
+        src={Illustration}
+        alt="illustration"
+        className="Rejected__illustration--mobile"
+      />
     </div>
   );
 };

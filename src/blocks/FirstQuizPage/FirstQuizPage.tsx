@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { addAnswer1 } from '../../toolkitRedux/toolkitReducer';
 
-import Illustration from '../../images/question1-ill.svg';
+import Illustration from '../../images/question1-ill.png';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
 import Viber from '../../images/social/viber.svg';
 import Skype from '../../images/social/skype.svg';
 import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
+import Next from '../../images/buttons/next.svg';
+import NextBold from '../../images/buttons/nextBold.svg';
+import '../Buttons/Buttons.scss';
 import './FirstQuizPage.scss';
 import '../../utils/header.scss';
 import '../../utils/footer.scss';
@@ -18,9 +24,10 @@ import '../../utils/container.scss';
 
 export const FirstQuizPage: React.FC = () => {
   const [timer, setTimer] = useState<number>(15);
+  const [answer, setAnswer] = useState<string>('');
   const [isNotification, setIsNotification] = useState<boolean>(false);
-  // const [answer, setAnswer] = useState<string>('');
-  // const [isRightAnswer, setIsRightAnswer] = useState<boolean | null>(null);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (timer > 0) {
@@ -35,8 +42,21 @@ export const FirstQuizPage: React.FC = () => {
       setIsNotification(true);
     }
 
+    if (answer !== '') {
+      setIsNotification(false);
+    }
+
     return undefined;
-  }, [timer]);
+  }, [timer, answer]);
+
+  const handleEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAnswer(e.target.value);
+  };
+
+  const star = classNames('star', {
+    'star--true': answer === '7',
+    'star--false': answer !== '7' && answer !== '',
+  });
 
   return (
     <div className="FirstQuizPage">
@@ -78,66 +98,60 @@ export const FirstQuizPage: React.FC = () => {
             </h3>
 
             <div className="FirstQuizPage__radiobuttons">
-              <Link
-                to="/incorrectFirstAnswer"
-                className="FirstQuizPage__navigate"
-              >
-                <label className="FirstQuizPage__radiobutton">
-                  <input
-                    type="radio"
-                    className="FirstQuizPage__radio"
-                    name="radiobutton1"
-                  />
-                  <span className="FirstQuizPage__fake FirstQuizPage__fake--red"></span>
-                  <span className="FirstQuizPage__text">1</span>
-                </label>
-              </Link>
+              <label className="FirstQuizPage__radiobutton">
+                <input
+                  type="radio"
+                  className="FirstQuizPage__radio"
+                  name="radiobutton1"
+                  value="1"
+                  onChange={handleEvent}
+                />
+                <span className="FirstQuizPage__fake FirstQuizPage__fake--red"></span>
+                <span className="FirstQuizPage__text">1</span>
+              </label>
 
-              <Link
-                to="/incorrectFirstAnswer"
-                className="FirstQuizPage__navigate"
-              >
-                <label className="FirstQuizPage__radiobutton">
-                  <input
-                    type="radio"
-                    className="FirstQuizPage__radio"
-                    name="radiobutton1"
-                  />
-                  <span className="FirstQuizPage__fake FirstQuizPage__fake--yellow"></span>
-                  <span className="FirstQuizPage__text">5</span>
-                </label>
-              </Link>
+              <label className="FirstQuizPage__radiobutton">
+                <input
+                  type="radio"
+                  className="FirstQuizPage__radio"
+                  name="radiobutton1"
+                  value="5"
+                  onChange={handleEvent}
+                />
+                <span className="FirstQuizPage__fake FirstQuizPage__fake--yellow"></span>
+                <span className="FirstQuizPage__text">5</span>
+              </label>
 
-              <Link
-                to="/incorrectFirstAnswer"
-                className="FirstQuizPage__navigate"
-              >
-                <label className="FirstQuizPage__radiobutton">
-                  <input
-                    type="radio"
-                    className="FirstQuizPage__radio"
-                    name="radiobutton1"
-                  />
-                  <span className="FirstQuizPage__fake FirstQuizPage__fake--green"></span>
-                  <span className="FirstQuizPage__text">3</span>
-                </label>
-              </Link>
+              <label className="FirstQuizPage__radiobutton">
+                <input
+                  type="radio"
+                  className="FirstQuizPage__radio"
+                  name="radiobutton1"
+                  value="3"
+                  onChange={handleEvent}
+                />
+                <span className="FirstQuizPage__fake FirstQuizPage__fake--green"></span>
+                <span className="FirstQuizPage__text">3</span>
+              </label>
 
-              <Link
-                to="/correctFirstAnswer"
-                className="FirstQuizPage__navigate"
-              >
-                <label className="FirstQuizPage__radiobutton">
-                  <input
-                    type="radio"
-                    className="FirstQuizPage__radio"
-                    name="radiobutton1"
-                  />
-                  <span className="FirstQuizPage__fake FirstQuizPage__fake--blue"></span>
-                  <span className="FirstQuizPage__text">7</span>
-                </label>
-              </Link>
+              <label className="FirstQuizPage__radiobutton">
+                <input
+                  type="radio"
+                  className="FirstQuizPage__radio"
+                  name="radiobutton1"
+                  value="7"
+                  onChange={handleEvent}
+                />
+                <span className="FirstQuizPage__fake FirstQuizPage__fake--blue"></span>
+                <span className="FirstQuizPage__text">7</span>
+              </label>
             </div>
+
+            {(isNotification && answer === '') && (
+              <p className="notification">
+                Please, choose your answer
+              </p>
+            )}
 
             <img
               src={Illustration}
@@ -151,6 +165,31 @@ export const FirstQuizPage: React.FC = () => {
               </span>
               /4
             </div>
+
+            {answer && (
+              <>
+                <div className="buttons FirstQuizPage__arrow">
+                  <Link
+                    className="buttons__next"
+                    to="/firstAnswer"
+                    onClick={() => dispatch(addAnswer1(answer))}
+                  >
+                    <img className="buttons--desktop" src={NextBold} alt="arrow left" />
+                    Next
+                  </Link>
+                </div>
+                <div className="buttons FirstQuizPage__arrow--mobile">
+                  <Link
+                    className="buttons__next"
+                    to="/firstAnswer"
+                    onClick={() => dispatch(addAnswer1(answer))}
+                  >
+                    <img className="buttons--mobile" src={Next} alt="arrow left" />
+                    Next
+                  </Link>
+                </div>
+              </>
+            )}
           </main>
         </div>
 
@@ -237,14 +276,10 @@ export const FirstQuizPage: React.FC = () => {
       </div>
 
       {!isNotification && (
-        <div className="star">
-          <span className="star__text">{timer}</span>
-        </div>
-      )}
-
-      {isNotification && (
-        <div className="notification">
-          Please click on your answer
+        <div className={star}>
+          {(answer === '') && (
+            <span className="star__text">{timer}</span>
+          )}
         </div>
       )}
     </div>

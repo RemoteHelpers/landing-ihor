@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import Illustration from '../../images/question1-ill.svg';
+import Illustration from '../../images/Rejected/ill.png';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
 import Viber from '../../images/social/viber.svg';
@@ -101,12 +101,6 @@ export const AdditionalDiscount: React.FC = () => {
                 <div className="AdditionalDiscount__button AdditionalDiscount__button--yellow">Share</div>
               </Link>
             </div>
-
-            <img
-              src={Illustration}
-              alt="illustration"
-              className="AdditionalDiscount__illustration"
-            />
 
             <div className="numberOfItem">
               <span className="numberOfItem--active">
@@ -211,6 +205,12 @@ export const AdditionalDiscount: React.FC = () => {
           </p>
         </header>
       </div>
+
+      <img
+        src={Illustration}
+        alt="illustration"
+        className="AdditionalDiscount__illustration--mobile"
+      />
     </div>
   );
 };

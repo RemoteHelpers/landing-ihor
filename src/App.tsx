@@ -25,19 +25,15 @@ export const App: React.FC = () => {
 
         <Route path="/firstQuestion" element={<FirstQuizPage />} />
 
-        <Route path="/correctFirstAnswer" element={<FirstQuizPageAnswer answer />} />
-
-        <Route path="/incorrectFirstAnswer" element={<FirstQuizPageAnswer answer={false} />} />
+        <Route path="/firstAnswer" element={<FirstQuizPageAnswer />} />
 
         <Route path="/secondQuestion" element={<SecondQuizPage />} />
 
-        <Route path="/correctSecondAnswer" element={<SecondQuizPageAnswer answer />} />
-
-        <Route path="/incorrectSecondAnswer" element={<SecondQuizPageAnswer answer={false} />} />
+        <Route path="/SecondAnswer" element={<SecondQuizPageAnswer />} />
 
         <Route path="/thirdQuestion" element={<ThirdQuizPage />} />
 
-        <Route path="/thirdAnswer" element={<ThirdQuizPageAnswer answer />} />
+        <Route path="/thirdAnswer" element={<ThirdQuizPageAnswer />} />
 
         <Route path="/fourthQuestion" element={<FourthQuizPage />} />
 

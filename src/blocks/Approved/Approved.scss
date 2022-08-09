@@ -1,7 +1,7 @@
 @import '../../utils/mixins.scss';
 @import '../../utils/colors.scss';
 
-.AdditionalDiscount {
+.Approved {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
@@ -235,34 +235,34 @@
   }
 
   &__illustration {
-    z-index: -1;
-    position: absolute;
-    bottom: 4%;
-    right: 0;
+    &--mobile {
+      width: 122px;
+      height: 216px;
+      position: absolute;
+      bottom: 7%;
+      right: 1%;
 
-    @include onTablet {
-      right: 50px;
-    }
+      @include onTablet {
+        right: 50px;
+      }
 
-    @include onDesktop {
-      bottom: 9%;
-      z-index: 1;
-      width: 503px;
-      height: 337px;
-      right: 22%;
-    }
+      @include onDesktop {
+        width: 198px;
+        height: 346px;
+        z-index: 1;
+        bottom: 7%;
+        right: 30%;
+      }
 
-    @include on1440 {
-      bottom: 9%;
-      width: 754px;
-      height: 505px;
-    }
+      @include on1440 {
+        width: 264px;
+        height: 461px;
+      }
 
-    @include on1920 {
-      bottom: 9%;
-      right: 24%;
-      width: 1007.24px;
-      height: 755.43px;
+      @include on1920 {
+        width: 395px;
+        height: 691px;
+      }
     }
   }
 }

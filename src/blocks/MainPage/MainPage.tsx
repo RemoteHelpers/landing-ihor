@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Logo from '../../images/Logo.svg';
-import Illustration from '../../images/main-ill.svg';
+import Illustration from '../../images/main-ill.png';
 import WhatsApp from '../../images/social/whatsapp.svg';
 import Viber from '../../images/social/viber.svg';
 import Skype from '../../images/social/skype.svg';
@@ -47,7 +47,10 @@ export const MainPage: React.FC = () => {
           {' '}
           for the first month for every correct answer.
         </p>
-        <Link to="/firstQuestion">
+        <Link
+          to="/firstQuestion"
+          className="MainPage__link"
+        >
           <button
             type="button"
             className="MainPage__button"

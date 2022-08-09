@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import Illustration from '../../images/question1-ill.svg';
+import Illustration from '../../images/question1-ill.png';
 import Logo from '../../images/Logo.svg';
 import FirstCompany from '../../images/FourthQuizPage/1.png';
 import SecondCompany from '../../images/FourthQuizPage/2.png';
@@ -69,7 +69,7 @@ export const FourthQuizPage: React.FC = () => {
 
             <div className="FourthQuizPage__buttons">
               <Link
-                to="/correctSecondAnswer"
+                to="/approved"
                 className="FourthQuizPage__navigate"
               >
                 <div className="FourthQuizPage__button FourthQuizPage__button--true">Yes</div>
@@ -99,7 +99,7 @@ export const FourthQuizPage: React.FC = () => {
             <div className="buttons FourthQuizPage__arrow">
               <Link
                 className="buttons__previous"
-                to="/firstQuestion"
+                to="/approved"
               >
                 <img className="buttons--desktop" src={PreviousBold} alt="arrow left" />
                 Previous
@@ -108,7 +108,7 @@ export const FourthQuizPage: React.FC = () => {
             <div className="buttons FourthQuizPage__arrow--mobile">
               <Link
                 className="buttons__previous"
-                to="/firstQuestion"
+                to="/approved"
               >
                 <img className="buttons--mobile" src={Previous} alt="arrow left" />
                 Previous

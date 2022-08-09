@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../toolkitRedux';
 import { Buttons, ButtonsDesktop } from '../Buttons/Buttons';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
@@ -7,18 +9,16 @@ import Skype from '../../images/social/skype.svg';
 import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
 import Euro from '../../images/SecondQuizPageAnswer/Euro.svg';
-import Ill from '../../images/FirstAnswer/ill.svg';
+import Ill from '../../images/SecondQuizPageAnswer/secondAnswer-ill.png';
 import './SecondQuizPageAnswer.scss';
 import '../../utils/header.scss';
 import '../../utils/footer.scss';
 import '../../utils/numberOfItem.scss';
 import '../../utils/container.scss';
 
-type Props = {
-  answer: boolean,
-};
+export const SecondQuizPageAnswer: React.FC = () => {
+  const isTrueAnswer = useSelector((state: RootState) => state.toolkit.secondQuestion.isTrue);
 
-export const SecondQuizPageAnswer: React.FC<Props> = ({ answer }) => {
   return (
     <div className="SecondQuizPageAnswer">
       <div className="SecondQuizPageAnswer__content-wrapper">
@@ -348,12 +348,12 @@ export const SecondQuizPageAnswer: React.FC<Props> = ({ answer }) => {
 
       <img src={Ill} alt="illustration" className="SecondQuizPageAnswer__illustration--mobile" />
 
-      {answer && (
-        <div className="star star--true"></div>
+      {isTrueAnswer && (
+        <div className="star star--true SecondQuizPageAnswer__star"></div>
       )}
 
-      {!answer && (
-        <div className="star star--false"></div>
+      {!isTrueAnswer && (
+        <div className="star star--false SecondQuizPageAnswer__star"></div>
       )}
     </div>
   );

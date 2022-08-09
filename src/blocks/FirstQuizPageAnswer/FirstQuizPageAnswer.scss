@@ -348,31 +348,48 @@
     }
   }
 
+  &__paragraph {
+    &--mobile {
+      text-align: left;
+    }
+  }
+
   &__illustration {
     &--mobile {
+      width: 181px;
+      height: 331px;
       position: absolute;
       right: 0%;
       bottom: 10%;
 
-      @media (max-width: 360px) {
-        right: -12%;
+      @media (max-width: 400px) {
+        right: -10%;
+        bottom: 15%;
       }
 
       @include onDesktop {
+        z-index: 1;
+        bottom: 7%;
         right: 35%;
       }
-
+  
       @include on1440 {
-        bottom: 2%;
-        width: 480px;
-        right: 33%;
+        width: 242px;
+        height: 441px;
       }
-
+  
       @include on1920 {
-        bottom: 2%;
-        width: 720px;
-        right: 33%;
+        width: 362px;
+        height: 661px;
       }
+    }
+  }
+
+  &__star {
+    display: none;
+
+    @include onDesktop {
+      display: block;
     }
   }
 }

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+import { useDispatch } from 'react-redux';
+import { addAnswer2 } from '../../toolkitRedux/toolkitReducer';
 
-import Illustration from '../../images/question1-ill.svg';
+import Illustration from '../../images/question1-ill.png';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
 import Viber from '../../images/social/viber.svg';
@@ -10,6 +13,8 @@ import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
 import Previous from '../../images/buttons/previous.svg';
 import PreviousBold from '../../images/buttons/previousBold.svg';
+import Next from '../../images/buttons/next.svg';
+import NextBold from '../../images/buttons/nextBold.svg';
 import '../Buttons/Buttons.scss';
 import '../../utils/header.scss';
 import '../../utils/footer.scss';
@@ -21,7 +26,10 @@ import './SecondQuizPage.scss';
 
 export const SecondQuizPage: React.FC = () => {
   const [timer, setTimer] = useState<number>(15);
+  const [answer, setAnswer] = useState<string | null>(null);
   const [isNotification, setIsNotification] = useState<boolean>(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (timer > 0) {
@@ -36,8 +44,23 @@ export const SecondQuizPage: React.FC = () => {
       setIsNotification(true);
     }
 
+    if (answer) {
+      setIsNotification(false);
+    }
+
     return undefined;
-  }, [timer]);
+  }, [timer, answer]);
+
+  const handleEvent = (e: React.MouseEvent<HTMLElement>) => {
+    const target = e.target as HTMLInputElement;
+
+    setAnswer(target.value);
+  };
+
+  const star = classNames('star', {
+    'star--true': answer === 'true',
+    'star--false': answer === 'false' && answer !== null,
+  });
 
   return (
     <div className="SecondQuizPage">
@@ -76,20 +99,30 @@ export const SecondQuizPage: React.FC = () => {
             </h3>
 
             <div className="SecondQuizPage__buttons">
-              <Link
-                to="/correctSecondAnswer"
-                className="SecondQuizPage__navigate"
+              <button
+                type="button"
+                className="SecondQuizPage__button SecondQuizPage__button--true"
+                onClick={handleEvent}
+                value="true"
               >
-                <div className="SecondQuizPage__button SecondQuizPage__button--true">True</div>
-              </Link>
+                True
+              </button>
 
-              <Link
-                to="/incorrectSecondAnswer"
-                className="SecondQuizPage__navigate"
+              <button
+                type="button"
+                className="SecondQuizPage__button SecondQuizPage__button--false"
+                onClick={handleEvent}
+                value="false"
               >
-                <div className="SecondQuizPage__button SecondQuizPage__button--false">False</div>
-              </Link>
+                False
+              </button>
             </div>
+
+            {(isNotification && answer === null) && (
+              <p className="notification">
+                Please, choose your answer
+              </p>
+            )}
 
             <img
               src={Illustration}
@@ -104,23 +137,50 @@ export const SecondQuizPage: React.FC = () => {
               /4
             </div>
 
-            <div className="buttons SecondQuizPage__arrow">
-              <Link
-                className="buttons__previous"
-                to="/firstQuestion"
-              >
-                <img className="buttons--desktop" src={PreviousBold} alt="arrow left" />
-                Previous
-              </Link>
-            </div>
-            <div className="buttons SecondQuizPage__arrow--mobile">
-              <Link
-                className="buttons__previous"
-                to="/firstQuestion"
-              >
-                <img className="buttons--mobile" src={Previous} alt="arrow left" />
-                Previous
-              </Link>
+            <div className="SecondQuizPage__arrows">
+              <div className="SecondQuizPage__arrow SecondQuizPage__arrow--desktop">
+                <Link
+                  className="SecondQuizPage__previous"
+                  to="/firstQuestion"
+                >
+                  <img className="SecondQuizPage__arrow--desktop" src={PreviousBold} alt="arrow left" />
+                  Previous
+                </Link>
+              </div>
+              <div className="SecondQuizPage__arrow--mobile">
+                <Link
+                  className="SecondQuizPage__previous"
+                  to="/firstQuestion"
+                >
+                  <img className="SecondQuizPage__arrow--mobile" src={Previous} alt="arrow left" />
+                  Previous
+                </Link>
+              </div>
+
+              {answer && (
+                <>
+                  <div className="SecondQuizPage__arrow SecondQuizPage__arrow--desktop">
+                    <Link
+                      className="SecondQuizPage__next"
+                      to="/secondAnswer"
+                      onClick={() => dispatch(addAnswer2(answer))}
+                    >
+                      Next
+                      <img className="SecondQuizPage__arrow--desktop" src={NextBold} alt="arrow left" />
+                    </Link>
+                  </div>
+                  <div className="SecondQuizPage__arrow--mobile">
+                    <Link
+                      className="SecondQuizPage__next"
+                      to="/secondAnswer"
+                      onClick={() => dispatch(addAnswer2(answer))}
+                    >
+                      Next
+                      <img className="SecondQuizPage__arrow--mobile" src={Next} alt="arrow left" />
+                    </Link>
+                  </div>
+                </>
+              )}
             </div>
           </main>
         </div>
@@ -208,14 +268,10 @@ export const SecondQuizPage: React.FC = () => {
       </div>
 
       {!isNotification && (
-        <div className="star">
-          <span className="star__text">{timer}</span>
-        </div>
-      )}
-
-      {isNotification && (
-        <div className="notification">
-          Please click on your answer
+        <div className={star}>
+          {(answer === null) && (
+            <span className="star__text">{timer}</span>
+          )}
         </div>
       )}
     </div>
