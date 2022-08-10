@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Illustration from '../../images/Form/ill.png';
@@ -27,6 +27,15 @@ export const Form: React.FC = () => {
   const [numberDirty, setNumberDirty] = useState(false);
   const [nameError, setNameError] = useState('Name can not be empty');
   const [numberError, setNumberError] = useState('Number can not be empty');
+  const [formValid, setFormValid] = useState(false);
+
+  useEffect(() => {
+    if (nameError || numberError) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+    }
+  }, [nameError, numberError, number, name]);
 
   const blurHandler = (e: React.FocusEvent<HTMLElement>) => {
     switch ((e.target as HTMLInputElement).name) {
@@ -47,8 +56,10 @@ export const Form: React.FC = () => {
     setName(e.target.value);
     const re = /^[a-zA-Z ]+$/;
 
-    if (!re.test(String(e.target.value))) {
-      setNameError('This name should contain English letters');
+    if (!re.test(String(e.target.value)) && e.target.value) {
+      setNameError('Name should contain English letters');
+    } else if (!e.target.value.trim()) {
+      setNameError('Name can not be empty');
     } else {
       setNameError('');
     }
@@ -56,17 +67,19 @@ export const Form: React.FC = () => {
 
   const numberHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNumber(e.target.value);
-    const re = /^\d+$/;
 
-    if (!re.test(String(e.target.value))) {
-      setNumberError('This number is invalid');
-
-      if (!e.target.value) {
-        setNumberError('This number is invalid');
-      } else {
-        setNumberError('Number can not be empty');
-      }
+    if (e.target.value.length < 5 || e.target.value.length > 15) {
+      setNumberError('Size should be less than 5 and more than 15');
+    } else if (!e.target.value.trim()) {
+      setNumberError('Number can not be empty');
+    } else {
+      setNumberError('');
     }
+  };
+
+  const submitHandler = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    alert('Thank you. We will coonect with you in 30 minutes');
   };
 
   return (
@@ -106,7 +119,7 @@ export const Form: React.FC = () => {
               We&apos;ll find a specialist to help you solve your business problems.
             </p>
 
-            <form action="post" className="Form__form">
+            <form action="post" className="Form__form" onSubmit={submitHandler}>
               {(nameDirty && nameError) && (
                 <div className="Form__error">{nameError}</div>
               )}
@@ -133,6 +146,7 @@ export const Form: React.FC = () => {
               />
 
               <input
+                disabled={!formValid}
                 type="submit"
                 className="Form__form-button"
                 value="Get a consultation now"
