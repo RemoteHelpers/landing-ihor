@@ -76,6 +76,7 @@ export const Approved: React.FC = () => {
               {' '}
               <span className="Approved__title--high">
                 Your discount is
+                {' '}
                 {amountOfDiscount}
                 $
               </span>
@@ -102,7 +103,7 @@ export const Approved: React.FC = () => {
 
             <div className="Approved__buttons">
               <Link
-                to="/correctSecondAnswer"
+                to="/approvedTestimonials"
                 className="Approved__navigate"
               >
                 <div className="Approved__button Approved__button--blue">Testimonials</div>

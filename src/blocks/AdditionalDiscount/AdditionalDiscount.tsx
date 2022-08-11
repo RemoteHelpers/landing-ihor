@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import 'react-share-button/dist/ShareBtn';
 
 import Illustration from '../../images/Rejected/ill.png';
 import Logo from '../../images/Logo.svg';
@@ -94,12 +95,13 @@ export const AdditionalDiscount: React.FC = () => {
                 <div className="AdditionalDiscount__button AdditionalDiscount__button--blue">Testimonials</div>
               </Link>
 
-              <Link
+              {/* <Link
                 to="/incorrectSecondAnswer"
                 className="AdditionalDiscount__navigate"
               >
-                <div className="AdditionalDiscount__button AdditionalDiscount__button--yellow">Share</div>
-              </Link>
+                <div className="AdditionalDiscount__button AdditionalDiscount__button--yellow"
+                >Share</div>
+              </Link> */}
             </div>
 
             <div className="numberOfItem">

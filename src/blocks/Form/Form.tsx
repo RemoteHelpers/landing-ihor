@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Illustration from '../../images/Form/ill.png';
 import Logo from '../../images/Logo.svg';
@@ -19,6 +20,7 @@ import '../../utils/notification.scss';
 import '../../utils/numberOfItem.scss';
 import '../../utils/container.scss';
 import './Form.scss';
+import { RootState } from '../../toolkitRedux';
 
 export const Form: React.FC = () => {
   const [name, setName] = useState('');
@@ -28,6 +30,14 @@ export const Form: React.FC = () => {
   const [nameError, setNameError] = useState('Name can not be empty');
   const [numberError, setNumberError] = useState('Number can not be empty');
   const [formValid, setFormValid] = useState(false);
+
+  const navigate = useNavigate();
+
+  const amountOfAnswers = useSelector((state: RootState) => {
+    return Number(state.toolkit.firstQuestion.isTrue)
+    + Number(state.toolkit.secondQuestion.isTrue)
+    + Number(state.toolkit.thirdQuestion.isTrue);
+  });
 
   useEffect(() => {
     if (nameError || numberError) {
@@ -69,7 +79,7 @@ export const Form: React.FC = () => {
     setNumber(e.target.value);
 
     if (e.target.value.length < 5 || e.target.value.length > 15) {
-      setNumberError('Size should be less than 5 and more than 15');
+      setNumberError('Size should be more than 5 and less than 15');
     } else if (!e.target.value.trim()) {
       setNumberError('Number can not be empty');
     } else {
@@ -145,12 +155,31 @@ export const Form: React.FC = () => {
                 className="Form__input"
               />
 
-              <input
-                disabled={!formValid}
-                type="submit"
-                className="Form__form-button"
-                value="Get a consultation now"
-              />
+              {amountOfAnswers > 0 && (
+                <Link
+                  to="/approved"
+                >
+                  <input
+                    disabled={!formValid}
+                    type="submit"
+                    className="Form__form-button"
+                    value="Get a consultation now"
+                  />
+                </Link>
+              )}
+
+              {!amountOfAnswers && (
+                <Link
+                  to="/5discount"
+                >
+                  <input
+                    disabled={!formValid}
+                    type="submit"
+                    className="Form__form-button"
+                    value="Get a consultation now"
+                  />
+                </Link>
+              )}
             </form>
 
             <div className="numberOfItem">
@@ -160,15 +189,14 @@ export const Form: React.FC = () => {
               /4
             </div>
 
-            <div className="buttons Form__arrow">
-              <Link
-                className="buttons__previous"
-                to="/firstQuestion"
-              >
-                <img className="buttons--desktop" src={PreviousBold} alt="arrow left" />
-                Previous
-              </Link>
-            </div>
+            <button
+              className="buttons Form__arrow"
+              type="button"
+              onClick={() => navigate(-1)}
+            >
+              <img className="buttons--desktop" src={PreviousBold} alt="arrow left" />
+              Previous
+            </button>
             <div className="buttons Form__arrow--mobile">
               <Link
                 className="buttons__previous"
@@ -218,6 +246,9 @@ export const Form: React.FC = () => {
             in Digital Marketing
           </p>
         </header>
+        <button type="button" className="footer__text Form__footer-button">
+          I&apos;m curious, want to get a consultation
+        </button>
       </div>
 
       <img

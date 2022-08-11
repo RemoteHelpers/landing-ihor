@@ -14,6 +14,7 @@ import { Rejected } from './blocks/Rejected/Rejected';
 import { Approved } from './blocks/Approved/Approved';
 import { AdditionalDiscount } from './blocks/AdditionalDiscount/AdditionalDiscount';
 import { ApproveTestimonials } from './blocks/ApproveTestimonials/ApproveTestimonials';
+import { RejectedTestimonials } from './blocks/RejectedTestimonials/RejectedTestimonials';
 
 export const App: React.FC = () => {
   return (
@@ -45,7 +46,9 @@ export const App: React.FC = () => {
 
         <Route path="/5discount" element={<AdditionalDiscount />} />
 
-        <Route path="/approvedTestimonials" element={<ApproveTestimonials answer />} />
+        <Route path="/approvedTestimonials" element={<ApproveTestimonials />} />
+
+        <Route path="/opportunityTestimonials" element={<RejectedTestimonials />} />
 
         {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>

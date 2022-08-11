@@ -25,7 +25,8 @@
   &__Rejected,
   &__Approved,
   &__AdditionalDiscount,
-  &__ApproveTestimonials {
+  &__ApproveTestimonials,
+  &__RejectedTestimonials {
     padding: 0 20px;
 
     @include onDesktop {

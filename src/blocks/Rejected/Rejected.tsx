@@ -85,7 +85,7 @@ export const Rejected: React.FC = () => {
 
             <div className="Rejected__buttons">
               <Link
-                to="/correctSecondAnswer"
+                to="/opportunityTestimonials"
                 className="Rejected__navigate"
               >
                 <div className="Rejected__button Rejected__button--blue">Testimonials</div>
@@ -109,7 +109,7 @@ export const Rejected: React.FC = () => {
             <div className="buttons Rejected__arrow">
               <Link
                 className="buttons__previous"
-                to="/firstQuestion"
+                to="/fourthQuestion"
               >
                 <img className="buttons--desktop" src={PreviousBold} alt="arrow left" />
                 Previous
@@ -118,7 +118,7 @@ export const Rejected: React.FC = () => {
             <div className="buttons Rejected__arrow--mobile">
               <Link
                 className="buttons__previous"
-                to="/firstQuestion"
+                to="/fourthQuestion"
               >
                 <img className="buttons--mobile" src={Previous} alt="arrow left" />
                 Previous

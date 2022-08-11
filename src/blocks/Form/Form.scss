@@ -285,9 +285,11 @@
   &__arrow {
     display: none;
     position: absolute;
+    border: none;
+    background-color: transparent;
   
     @include onDesktop{
-      left: -20%;
+      left: -25%;
       display: block;
     }
 
@@ -319,7 +321,7 @@
         height: 352px;
         z-index: 1;
         bottom: 7%;
-        right: 33%;
+        right: 35%;
       }
 
       @include on1440 {
@@ -331,6 +333,12 @@
         width: 284px;
         height: 704px;
       }
+    }
+  }
+
+  &__footer-button {
+    @include onDesktop {
+      display: none;
     }
   }
 }

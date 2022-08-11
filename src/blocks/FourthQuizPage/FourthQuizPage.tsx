@@ -69,14 +69,14 @@ export const FourthQuizPage: React.FC = () => {
 
             <div className="FourthQuizPage__buttons">
               <Link
-                to="/approved"
+                to="/form"
                 className="FourthQuizPage__navigate"
               >
                 <div className="FourthQuizPage__button FourthQuizPage__button--true">Yes</div>
               </Link>
 
               <Link
-                to="/incorrectSecondAnswer"
+                to="/opportunity"
                 className="FourthQuizPage__navigate"
               >
                 <div className="FourthQuizPage__button FourthQuizPage__button--false">No</div>
@@ -156,9 +156,13 @@ export const FourthQuizPage: React.FC = () => {
         </header>
 
         <footer>
-          <button type="button" className="footer__text">
-            I&apos;m curious, want to get a consultation
-          </button>
+          <Link
+            to="/form"
+          >
+            <button type="button" className="footer__text">
+              I&apos;m curious, want to get a consultation
+            </button>
+          </Link>
         </footer>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { RootState } from '../../toolkitRedux';
 import { Buttons, ButtonsDesktop } from '../Buttons/Buttons';
 import Logo from '../../images/Logo.svg';
@@ -244,9 +245,13 @@ export const ThirdQuizPageAnswer: React.FC = () => {
         </div>
 
         <footer>
-          <button type="button" className="footer__text footer__button">
-            I&apos;m curious, want to get a consultation
-          </button>
+          <Link
+            to="/form"
+          >
+            <button type="button" className="footer__text">
+              I&apos;m curious, want to get a consultation
+            </button>
+          </Link>
         </footer>
       </div>
 

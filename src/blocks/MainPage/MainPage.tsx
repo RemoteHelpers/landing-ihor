@@ -13,118 +13,125 @@ import '../../utils/container.scss';
 
 export const MainPage: React.FC = () => {
   return (
-    <div className="MainPage">
-      <div className="container container__mainPage">
-        <img
-          className="MainPage__logo"
-          src={Logo}
-          alt="Logo"
-        />
-        <h3 className="MainPage__title">
-          Get a discount
-          <br></br>
-          by hiring an employee
-        </h3>
-        <p className="MainPage__paragraph">
-          We are outstaffing company in
-          {' '}
-          <span className="MainPage__paragraph--yellow">
-            IT and marketing,
-          </span>
-          {' '}
-          and if you complete this quiz you
-          will learn what our firm can do for you and how to find the
-          {' '}
-          <span className="MainPage__paragraph--blue">
-            best remote helper
-          </span>
-          {' '}
-          .And you&apos;ll
-          {' '}
-          <span className="MainPage__paragraph--red">
-            get 15$ off
-          </span>
-          {' '}
-          for the first month for every correct answer.
-        </p>
-        <Link
-          to="/firstQuestion"
-          className="MainPage__link"
-        >
-          <button
-            type="button"
-            className="MainPage__button"
+    <>
+      <div className="MainPage">
+        <div className="container container__mainPage">
+          <img
+            className="MainPage__logo"
+            src={Logo}
+            alt="Logo"
+          />
+          <h3 className="MainPage__title">
+            Get a discount
+            <br></br>
+            by hiring an employee
+          </h3>
+          <p className="MainPage__paragraph">
+            We are outstaffing company in
+            {' '}
+            <span className="MainPage__paragraph--yellow">
+              IT and marketing,
+            </span>
+            {' '}
+            and if you complete this quiz you
+            will learn what our firm can do for you and how to find the
+            {' '}
+            <span className="MainPage__paragraph--blue">
+              best remote helper
+            </span>
+            {' '}
+            .And you&apos;ll
+            {' '}
+            <span className="MainPage__paragraph--red">
+              get 15$ off
+            </span>
+            {' '}
+            for the first month for every correct answer.
+          </p>
+          <Link
+            to="/firstQuestion"
+            className="MainPage__link"
           >
-            Want a discount
-          </button>
-        </Link>
+            <button
+              type="button"
+              className="MainPage__button"
+            >
+              Want a discount
+            </button>
+          </Link>
 
-        <img
-          className="MainPage__illustration"
-          src={Illustration}
-          alt="helper illustration"
-        />
+          <img
+            className="MainPage__illustration"
+            src={Illustration}
+            alt="helper illustration"
+          />
+        </div>
+
+        <footer className="footer">
+          <ul className="footer__social">
+            <li className="footer__social-item">
+              <a
+                href="https://wa.me/380997101033"
+                className="footer__social-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={WhatsApp} alt="WhatsApp logo" className="footer__social-logo" />
+                <span>+38 099 710 10 33</span>
+              </a>
+            </li>
+            <li className="footer__social-item footer__social-item--desktop">
+              <a
+                href="viber://chat?number=972509014509"
+                className="footer__social-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={Viber} alt="Viber logo" className="footer__social-logo" />
+                <span>+97 250 901 45 09</span>
+              </a>
+            </li>
+            <li className="footer__social-item footer__social-item--desktop">
+              <a
+                href="skype:youisrael?chat"
+                className="footer__social-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={Skype} alt="Skype logo" className="footer__social-logo" />
+                <span>youisrael</span>
+              </a>
+            </li>
+            <li className="footer__social-item">
+              <a
+                href="https://telegram.me/nikokardc"
+                className="footer__social-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={Telegram} alt="Telegram logo" className="footer__social-logo" />
+                <span>@nikokardc</span>
+              </a>
+            </li>
+            <li className="footer__social-item">
+              <a
+                href="mailto:sales@rh-s.com"
+                className="footer__social-link"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img src={Email} alt="Email logo" className="footer__social-logo" />
+                <span>sales@rh-s.com</span>
+              </a>
+            </li>
+          </ul>
+        </footer>
       </div>
 
-      <footer className="footer">
-        <ul className="footer__social">
-          <li className="footer__social-item">
-            <a
-              href="https://wa.me/380997101033"
-              className="footer__social-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={WhatsApp} alt="WhatsApp logo" className="footer__social-logo" />
-              <span>+38 099 710 10 33</span>
-            </a>
-          </li>
-          <li className="footer__social-item footer__social-item--desktop">
-            <a
-              href="viber://chat?number=972509014509"
-              className="footer__social-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={Viber} alt="Viber logo" className="footer__social-logo" />
-              <span>+97 250 901 45 09</span>
-            </a>
-          </li>
-          <li className="footer__social-item footer__social-item--desktop">
-            <a
-              href="skype:youisrael?chat"
-              className="footer__social-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={Skype} alt="Skype logo" className="footer__social-logo" />
-              <span>youisrael</span>
-            </a>
-          </li>
-          <li className="footer__social-item">
-            <a
-              href="https://telegram.me/nikokardc"
-              className="footer__social-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={Telegram} alt="Telegram logo" className="footer__social-logo" />
-              <span>@nikokardc</span>
-            </a>
-          </li>
-          <li className="footer__social-item">
-            <a
-              href="mailto:sales@rh-s.com"
-              className="footer__social-link"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={Email} alt="Email logo" className="footer__social-logo" />
-              <span>sales@rh-s.com</span>
-            </a>
-          </li>
-        </ul>
-      </footer>
-    </div>
+      <div className="LoadingPage">
+        <img src={Logo} alt="Logo" className="LoadingPage__logo" />
+        <div className="LoadingPage__dot"></div>
+      </div>
+    </>
   );
 };

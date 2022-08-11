@@ -172,6 +172,7 @@
     animation-timing-function: linear;
     animation-iteration-count: 6;
     animation-direction: alternate;
+    animation-delay: 3.6s;
 
     @include onTablet {
       animation-name: move;
@@ -222,6 +223,84 @@
   }
 }
 
+.LoadingPage {
+  position: absolute;
+  z-index: 3;
+  width: 100vw;
+  top: 0%;
+  height: 100vh;
+  background-color: $white;
+  background-image: radial-gradient(50% 50% at 80% 50%, $pink-gradient 0%, $black-gradient 100%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation-name: LoadingLogo;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 3.5s;
+
+  @include onDesktop {
+    background-image: linear-gradient(to left bottom, $pink-gradient, transparent 30%, $pink-gradient);
+  }
+
+  &__logo {
+    position: relative;
+    left: 12px;
+    width: 0;
+    height: 0;
+    animation-name: LoadingLogo;
+    animation-duration: 1s;
+    animation-timing-function:cubic-bezier(1, 0, 0, 1);
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 2.4s;
+  }
+
+  &__dot {
+    animation-name: LoadingDot;
+    animation-duration: 0.8s;
+    animation-timing-function: linear;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+
+    background-color: $main-red;
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+  }
+}
+
+@keyframes LoadingLogo {
+  from {
+    width: 0;
+    height: 0;
+  }
+
+  to {
+    width: 169px;
+    height: 34px;
+    opacity: 0;
+  }
+}
+
+@keyframes LoadingDot {
+  from {
+    transform: scale(100%);
+  }
+
+  to {
+    transform: scale(0);
+    display: none;
+  }
+}
+
 @keyframes move {
   from {
     bottom: 7%;
@@ -239,5 +318,15 @@
 
   to {
     bottom: 10%;
+  }
+}
+
+@keyframes finishLoading {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 0;
   }
 }

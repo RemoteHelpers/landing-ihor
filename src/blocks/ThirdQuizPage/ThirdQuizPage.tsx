@@ -25,7 +25,7 @@ import '../../utils/container.scss';
 import './ThirdQuizPage.scss';
 
 export const ThirdQuizPage: React.FC = () => {
-  const [timer, setTimer] = useState<number>(2);
+  const [timer, setTimer] = useState<number>(15);
   const [answer, setAnswer] = useState<string>('Move here');
   const [isNotification, setIsNotification] = useState<boolean>(false);
 
@@ -124,7 +124,7 @@ export const ThirdQuizPage: React.FC = () => {
 
             <div className="numberOfItem">
               <span className="numberOfItem--active">
-                2
+                3
               </span>
               /4
             </div>
@@ -133,7 +133,7 @@ export const ThirdQuizPage: React.FC = () => {
               <div className="SecondQuizPage__arrow SecondQuizPage__arrow--desktop">
                 <Link
                   className="SecondQuizPage__previous"
-                  to="/firstQuestion"
+                  to="/secondAnswer"
                 >
                   <img className="SecondQuizPage__arrow--desktop" src={PreviousBold} alt="arrow left" />
                   Previous
@@ -142,7 +142,7 @@ export const ThirdQuizPage: React.FC = () => {
               <div className="SecondQuizPage__arrow--mobile">
                 <Link
                   className="SecondQuizPage__previous"
-                  to="/firstQuestion"
+                  to="/secondAnswer"
                 >
                   <img className="SecondQuizPage__arrow--mobile" src={Previous} alt="arrow left" />
                   Previous
@@ -253,9 +253,13 @@ export const ThirdQuizPage: React.FC = () => {
         </header>
 
         <footer>
-          <button type="button" className="footer__text">
-            I&apos;m curious, want to get a consultation
-          </button>
+          <Link
+            to="/form"
+          >
+            <button type="button" className="footer__text">
+              I&apos;m curious, want to get a consultation
+            </button>
+          </Link>
         </footer>
       </div>
 

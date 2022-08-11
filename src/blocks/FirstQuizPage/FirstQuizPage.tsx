@@ -269,9 +269,13 @@ export const FirstQuizPage: React.FC = () => {
         </header>
 
         <footer>
-          <button type="button" className="footer__text">
-            I&apos;m curious, want to get a consultation
-          </button>
+          <Link
+            to="/form"
+          >
+            <button type="button" className="footer__text">
+              I&apos;m curious, want to get a consultation
+            </button>
+          </Link>
         </footer>
       </div>
 

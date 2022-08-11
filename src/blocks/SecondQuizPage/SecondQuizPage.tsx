@@ -141,7 +141,7 @@ export const SecondQuizPage: React.FC = () => {
               <div className="SecondQuizPage__arrow SecondQuizPage__arrow--desktop">
                 <Link
                   className="SecondQuizPage__previous"
-                  to="/firstQuestion"
+                  to="/firstAnswer"
                 >
                   <img className="SecondQuizPage__arrow--desktop" src={PreviousBold} alt="arrow left" />
                   Previous
@@ -150,7 +150,7 @@ export const SecondQuizPage: React.FC = () => {
               <div className="SecondQuizPage__arrow--mobile">
                 <Link
                   className="SecondQuizPage__previous"
-                  to="/firstQuestion"
+                  to="/firstAnswer"
                 >
                   <img className="SecondQuizPage__arrow--mobile" src={Previous} alt="arrow left" />
                   Previous
@@ -261,9 +261,13 @@ export const SecondQuizPage: React.FC = () => {
         </header>
 
         <footer>
-          <button type="button" className="footer__text">
-            I&apos;m curious, want to get a consultation
-          </button>
+          <Link
+            to="/form"
+          >
+            <button type="button" className="footer__text">
+              I&apos;m curious, want to get a consultation
+            </button>
+          </Link>
         </footer>
       </div>
 
