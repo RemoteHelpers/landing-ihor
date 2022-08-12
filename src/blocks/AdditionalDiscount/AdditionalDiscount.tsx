@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Illustration from '../../images/Rejected/ill.png';
@@ -8,8 +8,6 @@ import Viber from '../../images/social/viber.svg';
 import Skype from '../../images/social/skype.svg';
 import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
-// import Previous from '../../images/buttons/previous.svg';
-// import PreviousBold from '../../images/buttons/previousBold.svg';
 import '../Buttons/Buttons.scss';
 import '../../utils/header.scss';
 import '../../utils/footer.scss';
@@ -18,21 +16,10 @@ import '../../utils/notification.scss';
 // import '../../utils/numberOfItem.scss';
 import '../../utils/container.scss';
 import './AdditionalDiscount.scss';
+import { PopUp } from '../PopUp/PopUp';
 
 export const AdditionalDiscount: React.FC = () => {
-  const [timer, setTimer] = useState<number>(15);
-
-  useEffect(() => {
-    if (timer > 0) {
-      const interval = setInterval(() => {
-        setTimer(timer - 1);
-      }, 1000);
-
-      return () => clearInterval(interval);
-    }
-
-    return undefined;
-  }, [timer]);
+  const [modalActive, setModalActive] = useState(false);
 
   return (
     <div className="AdditionalDiscount">
@@ -87,48 +74,20 @@ export const AdditionalDiscount: React.FC = () => {
             </div>
 
             <div className="AdditionalDiscount__buttons">
+              <button
+                type="button"
+                className="Approved__button Approved__button--blue"
+                onClick={() => setModalActive(true)}
+              >
+                Share
+              </button>
               <Link
                 to="/approvedTestimonials"
                 className="AdditionalDiscount__navigate"
               >
-                <div className="AdditionalDiscount__button AdditionalDiscount__button--blue">Testimonials</div>
-              </Link>
-
-              <Link
-                to="/approvedTestimonials"
-                className="AdditionalDiscount__navigate"
-              >
-                <div className="AdditionalDiscount__button AdditionalDiscount__button--yellow">
-                  Share
-                </div>
+                <div className="AdditionalDiscount__button AdditionalDiscount__button--yellow">Testimonials</div>
               </Link>
             </div>
-
-            {/* <div className="numberOfItem">
-              <span className="numberOfItem--active">
-                4
-              </span>
-              /4
-            </div> */}
-
-            {/* <div className="buttons AdditionalDiscount__arrow">
-              <Link
-                className="buttons__previous"
-                to="/firstQuestion"
-              >
-                <img className="buttons--desktop" src={PreviousBold} alt="arrow left" />
-                Previous
-              </Link>
-            </div>
-            <div className="buttons AdditionalDiscount__arrow--mobile">
-              <Link
-                className="buttons__previous"
-                to="/firstQuestion"
-              >
-                <img className="buttons--mobile" src={Previous} alt="arrow left" />
-                Previous
-              </Link>
-            </div> */}
           </main>
         </div>
 
@@ -213,6 +172,10 @@ export const AdditionalDiscount: React.FC = () => {
         alt="illustration"
         className="AdditionalDiscount__illustration--mobile"
       />
+
+      <PopUp active={modalActive} setActive={setModalActive}>
+        <h1>23</h1>
+      </PopUp>
     </div>
   );
 };

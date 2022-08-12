@@ -5,6 +5,7 @@
   width: 100vw;
   z-index: 4;
   background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
   position: fixed;
   top: 0;
   left: 0;

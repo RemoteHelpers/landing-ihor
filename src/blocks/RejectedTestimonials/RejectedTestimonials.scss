@@ -233,7 +233,7 @@
 
   &__button {
     position: relative;
-    margin: 0;
+    margin: 0 auto;
     z-index: 2;
     display: flex;
     justify-content: center;
@@ -241,44 +241,47 @@
     margin-bottom: 4%;
     width: 98px;
     height: 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
 
     color: $white;
 
     transition: 0.3s all;
 
     @include onDesktop {
+      // position: absolute;
+      // left: 5%;
+      // bottom: 10%;
+      margin-left: 0;
       margin-bottom: 0;
       width: 242px;
       height: 98px;
+      font-size: 17px;
+    }
+
+    @include on1440 {
+      margin-bottom: 0;
+      width: 242px;
+      height: 98px;
+      font-size: 22px;
+    }
+
+    @include on1920 {
+      margin-bottom: 0;
+      width: 242px;
+      height: 98px;
+      font-size: 33px;
     }
 
     &:hover {
       transform: scale(110%);
+      cursor: pointer;
     }
 
     &--blue {
       background-image: url('../../images/Rejected/blue.svg');
       background-size: cover;
-    }
-
-    &--mobile {
-      position: relative;
-      margin: 0;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 4%;
-      width: 98px;
-      height: 40px;
-      margin: 0 auto;
-
-      color: $white;
-      transition: 0.3s all;
-
-      &:hover {
-        transform: scale(110%);
-      }
     }
   }
 

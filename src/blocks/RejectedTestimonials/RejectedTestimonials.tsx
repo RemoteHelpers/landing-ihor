@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/modules/pagination/pagination.scss';
@@ -20,8 +20,11 @@ import './RejectedTestimonials.scss';
 import '../../utils/header.scss';
 import '../../utils/footer.scss';
 import '../../utils/container.scss';
+import { PopUp } from '../PopUp/PopUp';
 
 export const RejectedTestimonials: React.FC = () => {
+  const [modalActive, setModalActive] = useState(false);
+
   return (
     <div className="RejectedTestimonials">
       <div className="RejectedTestimonials__content-wrapper">
@@ -49,13 +52,13 @@ export const RejectedTestimonials: React.FC = () => {
               <img src={Testimonials3} alt="testimonial" className="RejectedTestimonials__testimonial3" />
             </div>
 
-            {/* <Link
-              to="/opportunity"
-              className="RejectedTestimonials__navigate"
+            <button
+              type="button"
+              className="RejectedTestimonials__button RejectedTestimonials__button--blue"
+              onClick={() => setModalActive(true)}
             >
-              <div className="RejectedTestimonials__button RejectedTestimonials__button--blue"
-              >Share</div>
-            </Link> */}
+              Share
+            </button>
 
             <div className="buttons RejectedTestimonials__arrow">
               <Link
@@ -214,13 +217,13 @@ export const RejectedTestimonials: React.FC = () => {
               </SwiperSlide>
             </Swiper>
 
-            {/* <Link
-              to="/opportunity"
-              className="RejectedTestimonials__navigate"
+            <button
+              type="button"
+              className="RejectedTestimonials__button RejectedTestimonials__button--blue"
+              onClick={() => setModalActive(true)}
             >
-              <div className="RejectedTestimonials__button--mobile
-              RejectedTestimonials__button--blue">Share</div>
-            </Link> */}
+              Share
+            </button>
 
             <div className="buttons RejectedTestimonials__arrow--mobile">
               <Link
@@ -231,6 +234,10 @@ export const RejectedTestimonials: React.FC = () => {
                 Previous
               </Link>
             </div>
+
+            <PopUp active={modalActive} setActive={setModalActive}>
+              <h1>23</h1>
+            </PopUp>
           </main>
         </div>
 
@@ -250,6 +257,10 @@ export const RejectedTestimonials: React.FC = () => {
         alt="illustration"
         className="RejectedTestimonials__illustration"
       />
+
+      <PopUp active={modalActive} setActive={setModalActive}>
+        <h1>23</h1>
+      </PopUp>
     </div>
   );
 };

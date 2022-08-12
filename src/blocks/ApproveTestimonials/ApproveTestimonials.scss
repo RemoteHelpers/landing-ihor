@@ -241,6 +241,9 @@
     margin-bottom: 4%;
     width: 98px;
     height: 40px;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
 
     color: $white;
 
@@ -250,10 +253,26 @@
       margin-bottom: 0;
       width: 242px;
       height: 98px;
+      font-size: 17px;
+    }
+
+    @include on1440 {
+      margin-bottom: 0;
+      width: 242px;
+      height: 98px;
+      font-size: 22px;
+    }
+
+    @include on1920 {
+      margin-bottom: 0;
+      width: 242px;
+      height: 98px;
+      font-size: 33px;
     }
 
     &:hover {
       transform: scale(110%);
+      cursor: pointer;
     }
 
     &--blue {

@@ -23,6 +23,22 @@
   }
 
   @include onDesktop {
+    width: 75px;
+    height: 75px;
+    background-image: url('../images/star/timer-bg.svg');
+    top: 40%;
+    right: 4%;
+  }
+
+  @include onDesktop {
+    width: 100px;
+    height: 100px;
+    background-image: url('../images/star/timer-bg.svg');
+    top: 40%;
+    right: 4%;
+  }
+
+  @include onDesktop {
     width: 150px;
     height: 150px;
     background-image: url('../images/star/timer-bg.svg');

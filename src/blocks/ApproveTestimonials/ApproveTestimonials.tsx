@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useSelector } from 'react-redux';
 import 'swiper/modules/pagination/pagination.scss';
 import 'swiper/swiper.scss';
-import { Link } from 'react-router-dom';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
 import Viber from '../../images/social/viber.svg';
@@ -19,8 +18,11 @@ import '../../utils/header.scss';
 import '../../utils/footer.scss';
 import '../../utils/container.scss';
 import { RootState } from '../../toolkitRedux';
+import { PopUp } from '../PopUp/PopUp';
 
 export const ApproveTestimonials: React.FC = () => {
+  const [modalActive, setModalActive] = useState(false);
+
   const amountOfDiscount = useSelector((state: RootState) => {
     return Number(state.toolkit.firstQuestion.isTrue) * 15
     + Number(state.toolkit.secondQuestion.isTrue) * 15
@@ -223,12 +225,13 @@ export const ApproveTestimonials: React.FC = () => {
         </div>
 
         <footer>
-          <Link
-            to="/incorrectSecondAnswer"
-            className="ApproveTestimonials__navigate"
+          <button
+            type="button"
+            className="ApproveTestimonials__button ApproveTestimonials__button--blue"
+            onClick={() => setModalActive(true)}
           >
-            <div className="ApproveTestimonials__button ApproveTestimonials__button--blue">Share</div>
-          </Link>
+            Share
+          </button>
           <ul className="footer__social ApproveTestimonials__footer">
             <li className="footer__social-item">
               <a
@@ -288,6 +291,10 @@ export const ApproveTestimonials: React.FC = () => {
           </ul>
         </footer>
       </div>
+
+      <PopUp active={modalActive} setActive={setModalActive}>
+        <h1>23</h1>
+      </PopUp>
     </div>
   );
 };

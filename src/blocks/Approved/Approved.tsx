@@ -92,20 +92,19 @@ export const Approved: React.FC = () => {
             </div>
 
             <div className="Approved__buttons">
-              <Link
-                to="/approvedTestimonials"
-                className="Approved__navigate"
-              >
-                <div className="Approved__button Approved__button--blue">Testimonials</div>
-              </Link>
-
               <button
                 type="button"
-                className="Approved__button Approved__button--yellow"
+                className="Approved__button Approved__button--blue"
                 onClick={() => setModalActive(true)}
               >
                 Share
               </button>
+              <Link
+                to="/approvedTestimonials"
+                className="Approved__navigate"
+              >
+                <div className="Approved__button Approved__button--yellow">Testimonials</div>
+              </Link>
             </div>
           </main>
         </div>
