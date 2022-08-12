@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../toolkitRedux';
+
+import { PopUp } from '../PopUp/PopUp';
 
 import Illustration from '../../images/Rejected/ill.png';
 import Logo from '../../images/Logo.svg';
@@ -10,8 +12,8 @@ import Viber from '../../images/social/viber.svg';
 import Skype from '../../images/social/skype.svg';
 import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
-import Previous from '../../images/buttons/previous.svg';
-import PreviousBold from '../../images/buttons/previousBold.svg';
+// import Previous from '../../images/buttons/previous.svg';
+// import PreviousBold from '../../images/buttons/previousBold.svg';
 import '../Buttons/Buttons.scss';
 import '../../utils/header.scss';
 import '../../utils/footer.scss';
@@ -21,25 +23,13 @@ import '../../utils/container.scss';
 import './Approved.scss';
 
 export const Approved: React.FC = () => {
-  const [timer, setTimer] = useState<number>(15);
+  const [modalActive, setModalActive] = useState(false);
 
   const amountOfDiscount = useSelector((state: RootState) => {
     return Number(state.toolkit.firstQuestion.isTrue) * 15
     + Number(state.toolkit.secondQuestion.isTrue) * 15
     + Number(state.toolkit.thirdQuestion.isTrue) * 15;
   });
-
-  useEffect(() => {
-    if (timer > 0) {
-      const interval = setInterval(() => {
-        setTimer(timer - 1);
-      }, 1000);
-
-      return () => clearInterval(interval);
-    }
-
-    return undefined;
-  }, [timer]);
 
   return (
     <div className="Approved">
@@ -109,31 +99,13 @@ export const Approved: React.FC = () => {
                 <div className="Approved__button Approved__button--blue">Testimonials</div>
               </Link>
 
-              <Link
-                to="/incorrectSecondAnswer"
-                className="Approved__navigate"
+              <button
+                type="button"
+                className="Approved__button Approved__button--yellow"
+                onClick={() => setModalActive(true)}
               >
-                <div className="Approved__button Approved__button--yellow">Share</div>
-              </Link>
-            </div>
-
-            <div className="buttons Approved__arrow">
-              <Link
-                className="buttons__previous"
-                to="/firstQuestion"
-              >
-                <img className="buttons--desktop" src={PreviousBold} alt="arrow left" />
-                Previous
-              </Link>
-            </div>
-            <div className="buttons Approved__arrow--mobile">
-              <Link
-                className="buttons__previous"
-                to="/firstQuestion"
-              >
-                <img className="buttons--mobile" src={Previous} alt="arrow left" />
-                Previous
-              </Link>
+                Share
+              </button>
             </div>
           </main>
         </div>
@@ -219,6 +191,10 @@ export const Approved: React.FC = () => {
         alt="illustration"
         className="Approved__illustration--mobile"
       />
+
+      <PopUp active={modalActive} setActive={setModalActive}>
+        <h1>23</h1>
+      </PopUp>
     </div>
   );
 };

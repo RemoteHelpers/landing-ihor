@@ -3,7 +3,7 @@
 .numberOfItem {
   position: absolute;
   left: 5%;
-  bottom: 6%;
+  bottom: 5%;
   font-family: 'Balsamiq Sans', cursive;
   font-size: 15px;
   line-height: 170.9%;
@@ -11,6 +11,7 @@
   color: #1a1a1c;
 
   @include onDesktop {
+    bottom: 6%;
     left: inherit;
   }
 
@@ -30,6 +31,11 @@
     line-height: 170.9%;
     text-transform: uppercase;
     color: #1a1a1c;
+  }
+
+  &--answer {
+    bottom: 8%;
+    left: 5%;
   }
 
   &--active {

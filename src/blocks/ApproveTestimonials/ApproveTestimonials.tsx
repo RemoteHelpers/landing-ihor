@@ -46,7 +46,7 @@ export const ApproveTestimonials: React.FC = () => {
             <h3 className="ApproveTestimonials__title">
               Thanks for choosing our company.
               {' '}
-              <span className="ApprovedTestimonials__title--high">
+              <span className="ApproveTestimonials__title--high">
                 Your discount is
                 {' '}
                 {amountOfDiscount}

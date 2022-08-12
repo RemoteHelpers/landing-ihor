@@ -1,0 +1,109 @@
+@keyframes moveLeft {
+  from {
+    transform: translateX(30%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 100;
+  }
+}
+
+@keyframes manifestation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1000;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 100;
+  }
+}
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 100;
+  }
+}
+
+@keyframes LoadingLogo {
+  from {
+    width: 0;
+    height: 0;
+  }
+
+  to {
+    width: 169px;
+    height: 34px;
+    opacity: 0;
+  }
+}
+
+@keyframes LoadingDot {
+  from {
+    transform: scale(100%);
+  }
+
+  to {
+    transform: scale(0);
+    display: none;
+  }
+}
+
+@keyframes move {
+  from {
+    bottom: 7%;
+  }
+
+  to {
+    bottom: 9%;
+  }
+}
+
+@keyframes moveOnDesktop {
+  from {
+    bottom: 5%;
+  }
+
+  to {
+    bottom: 10%;
+  }
+}
+
+@keyframes finishLoading {
+  from {
+    opacity: 100%;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes loadText {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100;
+  }
+}

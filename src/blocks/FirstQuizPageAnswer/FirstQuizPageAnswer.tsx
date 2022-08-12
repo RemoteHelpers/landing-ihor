@@ -79,6 +79,10 @@ export const FirstQuizPageAnswer: React.FC = () => {
               </div>
             </div>
 
+            <p className="FirstQuizPageAnswer__paragraph">
+              ...who can work remotely the day shift or the night shift.
+            </p>
+
             <div className="numberOfItem">
               <span className="numberOfItem--active">
                 1

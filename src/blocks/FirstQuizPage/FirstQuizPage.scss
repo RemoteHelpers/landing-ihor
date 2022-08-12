@@ -67,6 +67,10 @@
     font-size: 20px;
     line-height: 130%;
 
+    transform: translateX(30%);
+    opacity: 0;
+    animation: moveLeft 0.3s linear 0s 1 alternate forwards;
+
     @media (max-width: 374px) {
       font-size: 16px;
     }
@@ -124,6 +128,7 @@
   }
 
   &__radiobutton {
+    opacity: 0;
     display: flex;
     justify-content: left;
     padding-left: 1%;
@@ -140,6 +145,19 @@
 
     &:hover {
       cursor: pointer;
+    }
+
+    &:nth-child(1) {
+      animation: moveLeft 0.3s linear 0.2s 1 alternate forwards;
+    }
+    &:nth-child(2) {
+      animation: moveLeft 0.3s linear 0.4s 1 alternate forwards;
+    }
+    &:nth-child(3) {
+      animation: moveLeft 0.3s linear 0.6s 1 alternate forwards;
+    }
+    &:nth-child(4) {
+      animation: moveLeft 0.3s linear 0.8s 1 alternate forwards;
     }
   }
 
@@ -200,14 +218,13 @@
     position: absolute;
   
     @include onDesktop{
-      left: -20%;
+      left: 6%;
       display: block;
     }
 
     &--mobile {
       display: flex;
       justify-content: center;
-      left: -16%;
 
       @include onDesktop {
         display: none;
@@ -237,6 +254,10 @@
     bottom: 7%;
     right: 1%;
 
+    opacity: 0;
+    transform: translateY(100%);
+    animation: moveUp 0.3s linear 1s 1 alternate forwards;
+
     @include onTablet {
       right: 50px;
     }
@@ -265,5 +286,29 @@
     @include onDesktop {
       width: 60%;
     }
+  }
+}
+
+@keyframes moveLeft {
+  from {
+    transform: translateX(30%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 1000;
+  }
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 100;
   }
 }

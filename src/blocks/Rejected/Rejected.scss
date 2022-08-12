@@ -1,5 +1,6 @@
 @import '../../utils/mixins.scss';
 @import '../../utils/colors.scss';
+@import '../../utils/animation.scss';
 
 .Rejected {
   position: relative;
@@ -68,6 +69,9 @@
     font-size: 20px;
     line-height: 130%;
 
+    opacity: 0;
+    animation: manifestation 0.3s linear 0s 1 alternate forwards;
+
     @media (max-width: 374px) {
       font-size: 16px;
     }
@@ -131,6 +135,9 @@
     line-height: 130%;
     padding: 6% 0;
 
+    opacity: 0;
+    animation: manifestation 0.3s linear 0.3s 1 alternate forwards;
+
     @include onDesktop {
       padding: 0;
       margin: 4% 0;
@@ -187,6 +194,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 4%;
+    opacity: 0;
 
     color: $white;
 
@@ -215,11 +223,15 @@
     &--blue {
       background-image: url('../../images/Rejected/blue.svg');
       background-size: cover;
+
+      animation: manifestation 0.3s linear 0.6s 1 alternate forwards;
     }
 
     &--yellow {
       background-image: url('../../images/Rejected/yellow.svg');
       background-size: cover;
+
+      animation: manifestation 0.3s linear 0.8s 1 alternate forwards;
     }
   }
 
@@ -255,6 +267,10 @@
       position: absolute;
       bottom: 7%;
       right: 1%;
+
+      transform: translateY(100%);
+      opacity: 0;
+      animation: moveUp 0.3s linear 1s 1 alternate forwards;
 
       @include onTablet {
         right: 50px;

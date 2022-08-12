@@ -1,5 +1,6 @@
 @import '../../utils/mixins.scss';
 @import '../../utils/colors.scss';
+@import '../../utils/animation.scss';
 
 .MainPage {
   background-image: radial-gradient(50% 50% at 80% 50%, $pink-gradient 0%, $black-gradient 100%);
@@ -33,10 +34,13 @@
   }
 
   &__title {
+    opacity: 0;
     margin: 0 0 5%;
     font-weight: 700;
     font-size: 26px;
     line-height: 110%;
+
+    animation: loadText 0.8s linear 3.5s 1 alternate forwards;
 
     @include onDesktop {
       margin: 0 0 3%;
@@ -54,10 +58,13 @@
   }
 
   &__paragraph {
+    opacity: 0;
     font-weight: 400;
     font-size: 14px;
     margin: 0 auto 25%;
     line-height: 150%;
+
+    animation: loadText 0.8s linear 3.7s 1 alternate forwards;
 
     &--yellow {
       font-weight: 700;
@@ -122,10 +129,13 @@
   }
 
   &__button {
+    opacity: 0;
     font-weight: 700;
     font-size: 16px;
     line-height: 170.9%;
     text-align: center;
+
+    animation: loadText 0.8s linear 3.9s 1 alternate forwards;
 
     color: $main-red;
     background-color: transparent;
@@ -274,59 +284,5 @@
     height: 24px;
     width: 24px;
     border-radius: 12px;
-  }
-}
-
-@keyframes LoadingLogo {
-  from {
-    width: 0;
-    height: 0;
-  }
-
-  to {
-    width: 169px;
-    height: 34px;
-    opacity: 0;
-  }
-}
-
-@keyframes LoadingDot {
-  from {
-    transform: scale(100%);
-  }
-
-  to {
-    transform: scale(0);
-    display: none;
-  }
-}
-
-@keyframes move {
-  from {
-    bottom: 7%;
-  }
-
-  to {
-    bottom: 9%;
-  }
-}
-
-@keyframes moveOnDesktop {
-  from {
-    bottom: 5%;
-  }
-
-  to {
-    bottom: 10%;
-  }
-}
-
-@keyframes finishLoading {
-  from {
-    opacity: 100%;
-  }
-
-  to {
-    opacity: 0;
   }
 }

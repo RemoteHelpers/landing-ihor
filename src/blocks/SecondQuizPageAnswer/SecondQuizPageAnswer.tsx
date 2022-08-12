@@ -2,7 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { RootState } from '../../toolkitRedux';
-import { Buttons, ButtonsDesktop } from '../Buttons/Buttons';
+import { ButtonsDesktop } from '../Buttons/Buttons';
+import Previous from '../../images/buttons/previous.svg';
+import Next from '../../images/buttons/next.svg';
 import Logo from '../../images/Logo.svg';
 import WhatsApp from '../../images/social/whatsapp.svg';
 import Viber from '../../images/social/viber.svg';
@@ -12,6 +14,7 @@ import Email from '../../images/social/email.svg';
 import Euro from '../../images/SecondQuizPageAnswer/Euro.svg';
 import Ill from '../../images/SecondQuizPageAnswer/secondAnswer-ill.png';
 import './SecondQuizPageAnswer.scss';
+import '../Buttons/Buttons.scss';
 import '../../utils/header.scss';
 import '../../utils/footer.scss';
 import '../../utils/numberOfItem.scss';
@@ -326,17 +329,30 @@ export const SecondQuizPageAnswer: React.FC = () => {
               hours a day
             </p>
 
-            <div className="numberOfItem--mobile">
+            <div className="numberOfItem--mobile numberOfItem--answer">
               <span className="numberOfItem--active">
                 2
               </span>
               /4
             </div>
 
-            <Buttons
-              previousUrl="/secondQuestion"
-              nextUrl="/thirdQuestion"
-            />
+            <div className="buttons SecondQuizPageAnswer__buttons-footer">
+              <Link
+                className="buttons__previous"
+                to="/secondQuestion"
+              >
+                <img className="buttons--mobile" src={Previous} alt="arrow left" />
+                Previous
+              </Link>
+
+              <Link
+                className="buttons__next"
+                to="/thirdQuestion"
+              >
+                Next
+                <img className="buttons--mobile" src={Next} alt="arrow right" />
+              </Link>
+            </div>
           </main>
         </div>
 

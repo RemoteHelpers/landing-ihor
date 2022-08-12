@@ -99,7 +99,7 @@ export const FourthQuizPage: React.FC = () => {
             <div className="buttons FourthQuizPage__arrow">
               <Link
                 className="buttons__previous"
-                to="/approved"
+                to="/thirdAnswer"
               >
                 <img className="buttons--desktop" src={PreviousBold} alt="arrow left" />
                 Previous
@@ -108,7 +108,7 @@ export const FourthQuizPage: React.FC = () => {
             <div className="buttons FourthQuizPage__arrow--mobile">
               <Link
                 className="buttons__previous"
-                to="/approved"
+                to="/thirdAnswer"
               >
                 <img className="buttons--mobile" src={Previous} alt="arrow left" />
                 Previous

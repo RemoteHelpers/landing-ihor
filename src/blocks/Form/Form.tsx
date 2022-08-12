@@ -10,8 +10,8 @@ import ThirdCompany from '../../images/FourthQuizPage/3.png';
 import FourthCompany from '../../images/FourthQuizPage/4.png';
 import FivthCompany from '../../images/FourthQuizPage/5.png';
 import SixthCompany from '../../images/FourthQuizPage/6.png';
-import Previous from '../../images/buttons/previous.svg';
-import PreviousBold from '../../images/buttons/previousBold.svg';
+// import Previous from '../../images/buttons/previous.svg';
+// import PreviousBold from '../../images/buttons/previousBold.svg';
 import '../Buttons/Buttons.scss';
 import '../../utils/header.scss';
 import '../../utils/footer.scss';
@@ -194,18 +194,15 @@ export const Form: React.FC = () => {
               type="button"
               onClick={() => navigate(-1)}
             >
-              <img className="buttons--desktop" src={PreviousBold} alt="arrow left" />
               Previous
             </button>
-            <div className="buttons Form__arrow--mobile">
-              <Link
-                className="buttons__previous"
-                to="/firstQuestion"
-              >
-                <img className="buttons--mobile" src={Previous} alt="arrow left" />
-                Previous
-              </Link>
-            </div>
+            <button
+              className="buttons Form__arrow--mobile"
+              type="button"
+              onClick={() => navigate(-1)}
+            >
+              Previous
+            </button>
           </main>
         </div>
 

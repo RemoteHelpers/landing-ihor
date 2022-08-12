@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import 'react-share-button/dist/ShareBtn';
 
 import Illustration from '../../images/Rejected/ill.png';
 import Logo from '../../images/Logo.svg';
@@ -9,14 +8,14 @@ import Viber from '../../images/social/viber.svg';
 import Skype from '../../images/social/skype.svg';
 import Telegram from '../../images/social/telegram.svg';
 import Email from '../../images/social/email.svg';
-import Previous from '../../images/buttons/previous.svg';
-import PreviousBold from '../../images/buttons/previousBold.svg';
+// import Previous from '../../images/buttons/previous.svg';
+// import PreviousBold from '../../images/buttons/previousBold.svg';
 import '../Buttons/Buttons.scss';
 import '../../utils/header.scss';
 import '../../utils/footer.scss';
 import '../../utils/star.scss';
 import '../../utils/notification.scss';
-import '../../utils/numberOfItem.scss';
+// import '../../utils/numberOfItem.scss';
 import '../../utils/container.scss';
 import './AdditionalDiscount.scss';
 
@@ -89,29 +88,30 @@ export const AdditionalDiscount: React.FC = () => {
 
             <div className="AdditionalDiscount__buttons">
               <Link
-                to="/correctSecondAnswer"
+                to="/approvedTestimonials"
                 className="AdditionalDiscount__navigate"
               >
                 <div className="AdditionalDiscount__button AdditionalDiscount__button--blue">Testimonials</div>
               </Link>
 
-              {/* <Link
-                to="/incorrectSecondAnswer"
+              <Link
+                to="/approvedTestimonials"
                 className="AdditionalDiscount__navigate"
               >
-                <div className="AdditionalDiscount__button AdditionalDiscount__button--yellow"
-                >Share</div>
-              </Link> */}
+                <div className="AdditionalDiscount__button AdditionalDiscount__button--yellow">
+                  Share
+                </div>
+              </Link>
             </div>
 
-            <div className="numberOfItem">
+            {/* <div className="numberOfItem">
               <span className="numberOfItem--active">
                 4
               </span>
               /4
-            </div>
+            </div> */}
 
-            <div className="buttons AdditionalDiscount__arrow">
+            {/* <div className="buttons AdditionalDiscount__arrow">
               <Link
                 className="buttons__previous"
                 to="/firstQuestion"
@@ -128,7 +128,7 @@ export const AdditionalDiscount: React.FC = () => {
                 <img className="buttons--mobile" src={Previous} alt="arrow left" />
                 Previous
               </Link>
-            </div>
+            </div> */}
           </main>
         </div>
 
